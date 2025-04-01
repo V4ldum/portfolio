@@ -1,4 +1,4 @@
-{% if demo in ['browser', 'mobile'] and demoPath is defined %}
+{% if demo in ['browser', 'mobile'] and demoUrl is defined %}
 
 <button class="btn btn-outline btn-primary btn-wide" onclick="demo()">Demo</button>
 <div id="demo" class="fixed -top-1/2 left-1/2 -translate-1/2 opacity-0 transition-all duration-750 ease-out">
@@ -15,7 +15,7 @@
         <div class="bg-base-200 flex justify-center px-2 py-2 w-[800px] h-[500px]">
             <div class="overflow-hidden w-full h-full">
                 {# 100 / 0.80 = 125 #}
-                <iframe class="rounded-lg origin-top-left w-[125%] h-[125%] scale-80" src="{{ baseUrl }}{{ demoPath }}">
+                <iframe class="rounded-lg origin-top-left w-[125%] h-[125%] scale-80" src="{{ demoUrl }}">
                 </iframe>
             </div>
         </div>
@@ -30,8 +30,7 @@
             <div class="artboard artboard-demo phone-1">
                 <div class="overflow-hidden w-full h-full">
                     {# 100 / 0.80 = 125 #}
-                    <iframe class="rounded-lg origin-top-left w-[125%] h-[125%] scale-80"
-                        src="{{ baseUrl }}{{ demoPath }}">
+                    <iframe class="rounded-lg origin-top-left w-[125%] h-[125%] scale-80" src="{{ demoUrl }}">
                     </iframe>
                 </div>
             </div>

@@ -4,7 +4,6 @@ import 'dart:io';
 import 'package:static_shock/static_shock.dart';
 
 import 'custom/html_prettifier_plugin.dart';
-import 'custom/website_domain_setter.dart';
 
 Future<void> main(List<String> arguments) async {
   // Configure the static website generator.
@@ -27,9 +26,7 @@ Future<void> main(List<String> arguments) async {
           ),
         )
         ..plugin(const PrettyUrlsPlugin())
-        // custom
-        ..plugin(HtmlPrettifierPlugin())
-        ..transformPages(WebsiteDomainSetter());
+        ..plugin(HtmlPrettifierPlugin());
 
   // Generate the static website.
   await staticShock.generateSite();
