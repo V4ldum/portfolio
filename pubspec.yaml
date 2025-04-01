@@ -1,0 +1,13 @@
+name: portfolio
+description: 
+version: 1.0.0
+publish_to: none
+
+environment:
+  sdk: ^3.7.0
+
+dependencies:
+  static_shock: any
+
+dev_dependencies:
+  lints: ^2.0.0

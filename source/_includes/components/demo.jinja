@@ -1,0 +1,65 @@
+{% if demo in ['browser', 'mobile'] and demoPath is defined %}
+
+<button class="btn btn-outline btn-primary btn-wide" onclick="demo()">Demo</button>
+<div id="demo" class="fixed -top-1/2 left-1/2 -translate-1/2 opacity-0 transition-all duration-750 ease-out">
+
+    {# Browser Mock #}
+    {% if demo == 'browser' %}
+
+    <div class="mockup-browser bg-base-200 border">
+        <div class="mockup-browser-toolbar">
+            <div class="input border-base-300 border">
+                {# baseUrl | replace('http://', '') | replace('https://', '') | trim('/') #}
+            </div>
+        </div>
+        <div class="bg-base-200 flex justify-center px-2 py-2 w-[800px] h-[500px]">
+            <div class="overflow-hidden w-full h-full">
+                {# 100 / 0.80 = 125 #}
+                <iframe class="rounded-lg origin-top-left w-[125%] h-[125%] scale-80" src="{{ baseUrl }}{{ demoPath }}">
+                </iframe>
+            </div>
+        </div>
+    </div>
+
+    {# Mobile Mock #}
+    {% elif demo == 'mobile' %}
+
+    <div class="mockup-phone border-primary">
+        <div class="camera"></div>
+        <div class="display">
+            <div class="artboard artboard-demo phone-1">
+                <div class="overflow-hidden w-full h-full">
+                    {# 100 / 0.80 = 125 #}
+                    <iframe class="rounded-lg origin-top-left w-[125%] h-[125%] scale-80"
+                        src="{{ baseUrl }}{{ demoPath }}">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% endif %}
+
+</div>
+
+<script>
+    function demo() {
+        // If mobile, navigate instead
+        if (window.matchMedia("(max-width: 768px)").matches) {
+            window.location.href = "{{ demoUrl }}";
+            return;
+        }
+
+        // If not mobile, we do the fancy animation
+        const demo = document.querySelector('#demo');
+        // Change opacity from 0 to 100%
+        demo.classList.toggle('opacity-0');
+        demo.classList.toggle('opacity-100');
+
+        // Change top position from -50% to 50%
+        demo.classList.toggle('-top-1/2');
+        demo.classList.toggle('top-1/2');
+    }
+</script>
+
+{% endif %}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html data-theme="macchiato" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <link href="/favicon.ico" rel="icon" type="image/x-icon" />
+    {{ components.style() }}
+
+    <title>Portfolio</title>
+</head>
+
+<body>
+    <main class="flex flex-col max-w-3xl mx-auto px-6">
+        <h1 class="text-5xl! font-bold! m-8! text-center">Projects</h1>
+
+        <div class="flex flex-row h-8 my-8">
+
+            <img class="w-8 h-8" src="/public/pedro.gif" />
+
+            <p class="mx-4! text-warning">/!\ Work In Progress /!\</p>
+
+            <img class="w-8 h-8" src="/public/pedro.gif" />
+
+        </div>
+
+        <div class="flex flex-col space-y-2">
+
+            {# For each pages #}
+            {% for page in pages.byTag("projets", sortBy="publishDate=desc") %}
+
+            <a class=" text-primary text-lg font-semibold hover:text-secondary hover:underline! decoration-2!"
+                href="{{ page.data.url }}">
+                {{ page.data.title }}
+            </a>
+
+            {% else %}
+            <p class="text-lg fond-semibold text-center m-16">Nothing to see here yet</p>
+            {% endfor %}
+
+        </div>
+
+    </main>
+</body>
+
+</html>
