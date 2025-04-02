@@ -23,7 +23,7 @@ RUN rm lib/main.dart
 RUN rm lib/env.dart
 COPY bin/mock/bingo lib
 RUN dart run build_runner build | grep -Ev "^\[INFO\]"
-RUN flutter build web --release > /dev/null 2>&1
+RUN flutter build web --release -base-href /demo/bingo/ > /dev/null 2>&1
 
 
 # Build
@@ -31,7 +31,6 @@ FROM dart:stable AS builder
 WORKDIR /work
 
 COPY . .
-COPY --from=mocker /bingo/build/web /source/demo/bingo
 
 RUN curl -sLO https://github.com/tailwindlabs/tailwindcss/releases/latest/download/tailwindcss-linux-arm64
 RUN chmod +x tailwindcss-linux-arm64
@@ -48,3 +47,4 @@ FROM nginx:alpine AS runner
 RUN sed -i '/^\s*#error_page\s*404/c\    error_page 404 /_404.html;' /etc/nginx/conf.d/default.conf
 
 COPY --from=builder /work/build /usr/share/nginx/html
+COPY --from=mocker /bingo/build/web /usr/share/nginx/html/demo/bingo
