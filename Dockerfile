@@ -23,6 +23,7 @@ WORKDIR /bingo
 RUN rm lib/main.dart
 RUN rm lib/env.dart
 COPY bin/mock/bingo lib
+RUN rm lib/pubspec.yaml
 RUN dart run build_runner build | grep -Ev "^\[INFO\]"
 # Jusqu'ici
 RUN flutter analyze
