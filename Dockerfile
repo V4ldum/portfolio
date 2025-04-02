@@ -19,14 +19,11 @@ RUN flutter config --enable-web 2>&1
 ### Bingo
 RUN git clone https://github.com/V4ldum/bingo
 WORKDIR /bingo
-# tout foutre dans un script?
 RUN rm lib/main.dart
 RUN rm lib/env.dart
 COPY bin/mock/bingo lib
-RUN rm lib/pubspec.yaml
 RUN dart run build_runner build | grep -Ev "^\[INFO\]"
-# Jusqu'ici
-RUN flutter analyze
+RUN flutter build web --release > /dev/null 2>&1
 
 
 # Build
