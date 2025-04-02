@@ -1,3 +1,17 @@
+# Mock
+FROM dart:stable AS mock
+COPY bin/mock/bingo .
+
+RUN ls bingo
+RUN git clone https://github.com/V4ldum/bingo
+
+RUN dart --disable-analytics 
+RUN flutter --disable-analytics 
+
+RUN dart run build_runner build
+RUN flutter analyze
+
+
 # Build
 FROM dart:stable AS builder
 
@@ -12,6 +26,7 @@ RUN dart --disable-analytics
 RUN dart pub get > /dev/null 2>&1
 
 RUN dart run bin/main.dart > /dev/null
+
 
 # Run
 FROM nginx:alpine AS runner
