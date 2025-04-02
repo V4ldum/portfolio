@@ -1,15 +1,30 @@
 # Mock
-FROM dart:stable AS mocker
+FROM debian:bookworm-slim AS mocker
 
-COPY bin/mock/bingo .
+## Setup
+RUN apt-get update -qq && \
+    apt-get install -y -qq git curl unzip
+RUN git clone https://github.com/flutter/flutter.git
+RUN /flutter/bin/flutter
+ENV PATH="/flutter/bin:/flutter/bin/cache/dart-sdk/bin:${PATH}"
 
-RUN ls bingo
+## Config
+RUN dart --disable-analytics
+RUN flutter --disable-analytics
+RUN flutter channel stable > /dev/null 2>&1
+RUN flutter upgrade > /dev/null 2>&1
+RUN flutter config --enable-web 2>&1
+
+## Build Mocks
+### Bingo
 RUN git clone https://github.com/V4ldum/bingo
-
-RUN dart --disable-analytics 
-RUN flutter --disable-analytics 
-
-RUN dart run build_runner build
+WORKDIR /bingo
+# tout foutre dans un script?
+RUN rm lib/main.dart
+RUN rm lib/env.dart
+COPY bin/mock/bingo lib
+RUN dart run build_runner build | grep -Ev "^\[INFO\]"
+# Jusqu'ici
 RUN flutter analyze
 
 
@@ -17,8 +32,8 @@ RUN flutter analyze
 FROM dart:stable AS builder
 WORKDIR /work
 
-COPY --from=mocker bingo/main.dart /tmp/main.dart
 COPY . .
+COPY --from=mocker /bingo/build/web /source/demo/bingo
 
 RUN curl -sLO https://github.com/tailwindlabs/tailwindcss/releases/latest/download/tailwindcss-linux-arm64
 RUN chmod +x tailwindcss-linux-arm64
