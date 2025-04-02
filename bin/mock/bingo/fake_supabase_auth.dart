@@ -1,11 +1,11 @@
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 class FakeSupabaseAuth extends GoTrueClient {
-  static bool _isAuthenticated = false;
+  static bool isAuthenticated = false;
 
   @override
   Session? get currentSession =>
-      _isAuthenticated
+      isAuthenticated
           ? Session(
             accessToken: '',
             tokenType: '',
@@ -15,7 +15,7 @@ class FakeSupabaseAuth extends GoTrueClient {
 
   @override
   Future<void> signOut({SignOutScope scope = SignOutScope.local}) {
-    _isAuthenticated = false;
+    isAuthenticated = false;
     return Future.value();
   }
 }

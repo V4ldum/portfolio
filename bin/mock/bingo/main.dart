@@ -12,6 +12,8 @@ import 'package:rust/rust.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
+import 'database_mock_repository.dart';
+
 void main() {
   usePathUrlStrategy();
   runApp(

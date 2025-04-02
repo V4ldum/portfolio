@@ -1,5 +1,5 @@
-import 'dart:math' show Random;
 import 'dart:async';
+import 'dart:math' show Random;
 
 import 'package:bingo/models/bingo.dart';
 import 'package:bingo/repositories/database_repository.dart';
@@ -12,6 +12,8 @@ import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 import 'package:rust/rust.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
+
+import 'fake_supabase_auth.dart';
 
 class DatabaseMockRepository implements DatabaseRepository {
   static void Function(BingoItemDto)? _refreshCallback;
@@ -105,7 +107,7 @@ class DatabaseMockRepository implements DatabaseRepository {
   @override
   Future<bool> authenticateUser(String username, String password) async {
     if (username == 'mock' && password == 'mock') {
-      FakeSupabaseAuth._isAuthenticated = true;
+      FakeSupabaseAuth.isAuthenticated = true;
       return true;
     }
     return false;
