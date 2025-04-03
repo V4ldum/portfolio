@@ -53,4 +53,5 @@ RUN sed -i '/^\s*#error_page\s*404/c\    error_page 404 /_404.html;' /etc/nginx/
 COPY --from=builder /work/build /usr/share/nginx/html
 COPY --from=mocker /bingo/build/web /usr/share/nginx/html/demo/bingo
 
-RUN grep -rl --include="index.html" '<base href="/">' /usr/share/nginx/html/demo | xargs sed -i 's/<base href="\/">//g'
+RUN find /usr/share/nginx/html/demo -type f -name "index.html" -exec grep -l '<base href=
+"/">' {} + | xargs sed -i 's/<base href="\/">//g'
