@@ -21,6 +21,10 @@ RUN git clone https://github.com/V4ldum/bingo
 WORKDIR /bingo
 RUN rm lib/main.dart
 RUN rm lib/env.dart
+RUN grep -rl --include="*.dart" 'Supabase.instance.client.auth' lib | tee \ 
+    >(xargs sed -i 's/Supabase\.instance\.client\.auth/FakeSupabaseAuth\(\)/g') \
+    >(xargs sed -i 's/package:supabase_flutter\/supabase_flutter\.dart/package:bingo\/fake_supabase_auth\.dart/g')
+RUN grep -rl --include="*.dart" 'bingo.valdum.dev' lib | xargs sed -i 's/bingo\.valdum\.dev/this\.wont\.work\.in\.mock/g'
 COPY bin/mock/bingo lib
 RUN dart run build_runner build | grep -Ev "^\[INFO\]"
 RUN flutter build web --release -base-href /demo/bingo/ > /dev/null 2>&1
