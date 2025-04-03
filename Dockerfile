@@ -27,7 +27,7 @@ RUN grep -rl --include="*.dart" 'Supabase.instance.client.auth' lib | tee \
 RUN grep -rl --include="*.dart" 'bingo.valdum.dev' lib | xargs sed -i 's/bingo\.valdum\.dev/this\.wont\.work\.in\.mock/g'
 COPY bin/mock/bingo lib
 RUN dart run build_runner build | grep -Ev "^\[INFO\]"
-RUN flutter build web --release -base-href /demo/bingo/ > /dev/null 2>&1
+RUN flutter build web --release --base-href /demo/bingo/ > /dev/null 2>&1
 
 
 # Build
