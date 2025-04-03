@@ -27,7 +27,7 @@ RUN grep -rl --include="*.dart" 'Supabase.instance.client.auth' lib | tee \
 RUN grep -rl --include="*.dart" 'bingo.valdum.dev' lib | xargs sed -i 's/bingo\.valdum\.dev/this\.wont\.work\.in\.mock/g'
 COPY bin/mock/bingo lib
 RUN dart run build_runner build | grep -Ev "^\[INFO\]"
-RUN flutter build web --release --base-href /demo/bingo/ > /dev/null 2>&1
+RUN flutter build web --release > /dev/null 2>&1
 
 
 # Build
@@ -52,3 +52,5 @@ RUN sed -i '/^\s*#error_page\s*404/c\    error_page 404 /_404.html;' /etc/nginx/
 
 COPY --from=builder /work/build /usr/share/nginx/html
 COPY --from=mocker /bingo/build/web /usr/share/nginx/html/demo/bingo
+
+RUN grep -rl --include="index.html" '<base href="/">' /usr/share/nginx/html/demo | xargs sed -i 's/<base href="\/">//g'
