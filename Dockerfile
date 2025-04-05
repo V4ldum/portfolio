@@ -21,13 +21,13 @@ RUN git clone https://github.com/V4ldum/bingo
 WORKDIR /bingo
 RUN rm lib/main.dart
 RUN rm lib/env.dart
-RUN grep -rl --include="*.dart" 'Supabase.instance.client.auth' lib | tee \ 
-    >(xargs sed -i 's/Supabase\.instance\.client\.auth/FakeSupabaseAuth\(\)/g') \
-    >(xargs sed -i 's/package:supabase_flutter\/supabase_flutter\.dart/package:bingo\/fake_supabase_auth\.dart/g')
+RUN grep -rl --include="*.dart" 'Supabase.instance.client.auth' lib > /tmp/matched.txt
+RUN sed -i 's/Supabase\.instance\.client\.auth/FakeSupabaseAuth()/g' $(cat /tmp/matched.txt)
+RUN sed -i 's/package:supabase_flutter\/supabase_flutter\.dart/package:bingo\/fake_supabase_auth\.dart/g' $(cat /tmp/matched.txt)
 RUN grep -rl --include="*.dart" 'bingo.valdum.dev' lib | xargs sed -i 's/bingo\.valdum\.dev/this\.wont\.work\.in\.mock/g'
 COPY bin/mock/bingo lib
 RUN dart run build_runner build | grep -Ev "^\[INFO\]"
-RUN flutter build web --release > /dev/null 2>&1
+RUN flutter build web --release --base-href "/demo/bingo/" > /dev/null 2>&1
 
 
 # Build
@@ -52,5 +52,3 @@ RUN sed -i '/^\s*#error_page\s*404/c\    error_page 404 /_404.html;' /etc/nginx/
 
 COPY --from=builder /work/build /usr/share/nginx/html
 COPY --from=mocker /bingo/build/web /usr/share/nginx/html/demo/bingo
-
-RUN find /usr/share/nginx/html/demo -type f -name "index.html" -exec grep -l '<base href="/">' {} + | xargs sed -i'' 's/<base href="\/">//g'

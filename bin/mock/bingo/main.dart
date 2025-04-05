@@ -3,11 +3,13 @@ import 'package:bingo/router.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
 import 'database_mock_repository.dart';
 
 void main() {
+  usePathUrlStrategy();
   runApp(
     ProviderScope(
       overrides: [databaseRepositoryProvider.overrideWith((ref) => DatabaseMockRepository())],
