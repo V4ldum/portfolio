@@ -8,6 +8,7 @@ import 'custom/portfolio_mocker.dart';
 
 Future<void> main(List<String> arguments) async {
   final isMockMode = arguments.contains('mocks');
+  final isTemplatingMode = arguments.contains('templating');
 
   const destinationDirectory = 'build';
   const sourceDirectory = 'source';
@@ -41,7 +42,11 @@ Future<void> main(List<String> arguments) async {
 
   staticShock =
       staticShock..plugin(
-        PortfolioMocker(gitDirectory: '$destinationDirectory${isMockMode ? '' : '/_git'}', skipBuild: isMockMode),
+        PortfolioMocker(
+          gitDirectory: '$destinationDirectory${isMockMode ? '' : '/_git'}',
+          skipBuild: isMockMode,
+          skipClone: isTemplatingMode,
+        ),
       );
 
   // Generate the static website.

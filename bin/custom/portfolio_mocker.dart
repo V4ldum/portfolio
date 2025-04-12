@@ -12,12 +12,14 @@ class PortfolioMocker implements StaticShockPlugin {
     this.gitDirectory = 'build/_git',
     this.buildDirectory = 'build/demo',
     this.skipBuild = false,
+    this.skipClone = false,
   });
 
   final String mocksSourceDirectory;
   final String gitDirectory;
   final String buildDirectory;
   final bool skipBuild;
+  final bool skipClone;
 
   @override
   String get id => "dev.valdum.portfoliomocker";
@@ -28,13 +30,13 @@ class PortfolioMocker implements StaticShockPlugin {
     StaticShockPipelineContext context,
     StaticShockCache pluginCache,
   ) {
-    // TODO cache per directory (ex: bingo déjà build on cache)
     pipeline.finish(
       _PortfolioMockerFinisher(
         mocksSourceDirectory: mocksSourceDirectory,
         gitDirectory: gitDirectory,
         buildDirectory: buildDirectory,
         skipBuild: skipBuild,
+        skipClone: skipClone,
       ),
     );
   }
@@ -46,6 +48,7 @@ class _PortfolioMockerFinisher implements Finisher {
     required this.gitDirectory,
     required this.buildDirectory,
     required this.skipBuild,
+    required this.skipClone,
   });
 
   static const String _mockDataFilename = "_mock.yaml";
@@ -54,6 +57,7 @@ class _PortfolioMockerFinisher implements Finisher {
   final String gitDirectory;
   final String buildDirectory;
   final bool skipBuild;
+  final bool skipClone;
 
   @override
   Future<void> execute(StaticShockPipelineContext context) async {
@@ -75,9 +79,8 @@ class _PortfolioMockerFinisher implements Finisher {
       }
     }
 
-    // TODO mettre en cache les git et les demo/build
     // Cleaning _git directory
-    if (!skipBuild) {
+    if (!skipBuild && !skipClone) {
       await Directory(gitDirectory).delete(recursive: true);
     }
   }
@@ -103,6 +106,11 @@ class _PortfolioMockerFinisher implements Finisher {
     if (data.buildOutputFolder.isEmpty) {
       context.log.err('Missing build folder, skipping');
       return;
+    }
+
+    // Skip clone in templating mode, useful for rebuilds in quick succession when updating the website
+    if (skipClone) {
+      return; //_template('$buildDirectory/$folderName', folderName);
     }
 
     // Clone the repository
@@ -150,6 +158,25 @@ class _PortfolioMockerFinisher implements Finisher {
       ]);
     }
   }
+
+  //   Future<void> _template(String workingDirectory, String projectName) async {
+  //     String htmlContent = r"""
+  // <!DOCTYPE html>
+  // <html data-theme="macchiato" lang="en">
+  // <head>
+  //     <meta charset="utf-8" />
+  //     <title>Works</title>
+  // </head>
+  // <body>
+  //     <p>$PROJECT works !</p>
+  // </body>
+  // </html>
+  // """;
+
+  //     final file = File('$workingDirectory/index.html');
+  //     await file.create(recursive: true);
+  //     await file.writeAsString(htmlContent.replaceAll('\$PROJECT', projectName));
+  //   }
 }
 
 class _MockData {
