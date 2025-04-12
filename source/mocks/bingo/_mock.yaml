@@ -1,0 +1,11 @@
+git: https://github.com/V4ldum/bingo
+gitCommitHash: 734bd54ee0b438cdf6ab138aba924dfab8a3389e
+buildCommands: 
+ - dart run build_runner build
+ - flutter build web --release --base-href /demo/bingo/
+buildOutputFolder: build/web
+commands:
+ - DELETE lib/env.dart
+ - REPLACE lib Supabase.instance.client.auth FakeSupabaseAuth() ^.*\.dart$
+ - REPLACE lib package:supabase_flutter/supabase_flutter.dart package:bingo/fake_supabase_auth.dart ^(?!.*database_repository\.dart$).*\.dart$
+ - REPLACE lib bingo.valdum.dev this.wont.work.in.mock ^.*\.dart$
