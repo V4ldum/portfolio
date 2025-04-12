@@ -142,6 +142,7 @@ class _PortfolioMockerFinisher implements Finisher {
         await Process.run(command.next()!, command.collectList(), runInShell: true, workingDirectory: workingDirectory);
       }
 
+      await Directory(buildDirectory).create();
       await Process.run('cp', [
         '-r',
         '$gitDirectory/$folderName/${data.buildOutputFolder}',
