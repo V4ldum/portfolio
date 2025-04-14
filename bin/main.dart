@@ -8,7 +8,7 @@ import 'custom/portfolio_mocker.dart';
 
 Future<void> main(List<String> arguments) async {
   final isMockMode = arguments.contains('mocks');
-  final isTemplatingMode = arguments.contains('templating');
+  final isTemplatingMode = !arguments.contains('release') && !isMockMode;
 
   const destinationDirectory = 'build';
   const sourceDirectory = 'source';

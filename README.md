@@ -12,7 +12,7 @@ dart run bin/main.dart <mocks|templating>
 ```
 
 **mocks**: This argument will only construct the source code of the mocks to enable testing.
-**templating**: This argument will skip the mocks to improve build speed when testing/updating the website.
+**release**: This argument will build the portfolio and all mocked projects. If not in release, only the portfolio will be built, not the mocked projects.
 
 ## Copyright
 
