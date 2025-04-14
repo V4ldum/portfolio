@@ -24,7 +24,7 @@ RUN flutter config --enable-web 2>&1
 RUN dart pub get > /dev/null 2>&1
 
 ## Build
-RUN dart run bin/main.dart > /dev/null
+RUN dart run bin/main.dart release > /dev/null
 
 
 # Runner
