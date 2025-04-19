@@ -3,7 +3,7 @@ title: Proof of Concept Spyware
 publishDate: 2025-01-01
 ---
 
-## About the project
+### About the project
 
 As part of my engineering curriculum, I built a proof of concept for a spyware in Python. The project is split into two parts : a client and a server. 
 
@@ -13,6 +13,6 @@ At the time of tests, the non-*exec* version of the client was undetectable by a
 
 You can find the source code [here](https://github.com/V4ldum/poc-spyware-python).
 
-## Tech Stack
+### Tech Stack
 
-- Language: Python
+- **Language:** Python

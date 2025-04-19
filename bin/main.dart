@@ -5,6 +5,7 @@ import 'package:static_shock/static_shock.dart';
 
 import 'custom/html_prettifier_plugin.dart';
 import 'custom/portfolio_mocker.dart';
+import 'custom/markdown_html_class_adder_transformer.dart';
 
 Future<void> main(List<String> arguments) async {
   final isMockMode = arguments.contains('mocks');
@@ -32,12 +33,29 @@ Future<void> main(List<String> arguments) async {
           ..plugin(
             TailwindPlugin(
               tailwindPath: Platform.isWindows ? "./tailwindcss.exe" : "./tailwindcss",
-              input: "source/styles/tailwind.css",
-              output: "build/styles/tailwind.css",
+              input: "source/styles/styles.css",
+              output: "build/styles/styles.css",
             ),
           )
           ..plugin(const PrettyUrlsPlugin())
-          ..plugin(HtmlPrettifierPlugin());
+          ..plugin(HtmlPrettifierPlugin())
+          ..finish(
+            MarkdownHtmlClassAdderFinisher(
+              classesPerTags: {
+                'h1': 'text-4xl! font-semibold mt-8!',
+                'h2': 'text-3xl! mt-8!',
+                'h3': 'text-2xl! font-semibold mt-8!',
+                'h4': 'text-2xl! mt-8!',
+                'h5': 'text-xl! font-semibold mt-8!',
+                'h6': 'text-xl! mt-8!',
+                'a': 'link-primary font-semibold hover:underline!',
+                'p': 'text-justify my-4!',
+                'ul': 'list-disc! list-inside my-4! pl-4!',
+                'ol': 'list-decimal list-inside my-4! pl-4!',
+                'img': 'm-auto',
+              },
+            ),
+          );
   }
 
   staticShock =

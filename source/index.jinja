@@ -29,8 +29,7 @@
             {# For each pages #}
             {% for page in pages.byTag("projets", sortBy="publishDate=desc") %}
 
-            <a class=" text-primary text-lg font-semibold hover:text-secondary hover:underline! decoration-2!"
-                href="{{ page.data.url }}">
+            <a class="link-primary text-lg font-semibold hover:underline! decoration-2!" href="{{ page.data.url }}">
                 {{ page.data.title }}
             </a>
 

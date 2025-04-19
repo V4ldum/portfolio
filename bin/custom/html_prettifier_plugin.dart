@@ -22,11 +22,13 @@ class _HtmlPrettifierFinisher implements Finisher {
   const _HtmlPrettifierFinisher();
 
   @override
-  FutureOr<void> execute(StaticShockPipelineContext context) {
+  void execute(StaticShockPipelineContext context) {
     for (final page in context.pagesIndex.pages) {
-      if (page.destinationPath?.extension == "html" && page.destinationContent != null) {
-        page.destinationContent = page.destinationContent!.replaceAll(RegExp(r"^\s*$", multiLine: true), "");
+      if (page.destinationPath?.extension != "html" || page.destinationContent == null) {
+        continue;
       }
+
+      page.destinationContent = page.destinationContent!.replaceAll(RegExp(r"^\s*$", multiLine: true), "");
     }
   }
 }

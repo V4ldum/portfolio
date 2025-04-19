@@ -3,7 +3,7 @@ title: Android Security Challenges
 publishDate: 2021-10-01
 ---
 
-## About the project
+### About the project
 
 As part of my engineering curriculum, I built this collection of small security challenges targeting usual code malpractices in mobile application development. Each challenge comes with a vulnerable APK, an introduction to the challenge, and the expected solution. Some of the harder ones also come with hints. I took inspiration from [DIVA](https://github.com/payatu/diva-android), [Insecure Bank](https://github.com/dineshshetty/Android-InsecureBankv2), as well as the [OWASP Top 10 Mobile](https://owasp.org/www-project-mobile-top-10/) for the challenges.
 
@@ -19,6 +19,6 @@ Here is a recap of the malpractices covered
 
 You can find the challenges as well as their source code [here](https://github.com/V4ldum/ctf-android).
 
-## Tech Stack
+### Tech Stack
 
-- Language: Java
+- **Language:** Java

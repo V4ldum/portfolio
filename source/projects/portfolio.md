@@ -3,7 +3,7 @@ title: Portfolio
 publishDate: 2025-04-01
 ---
 
-## About the project
+### About the project
 
 My portfolio (the website you are currently browsing) is a static website built using [StaticShock](https://staticshock.io/). When changes are made, the StaticShock pipeline runs once and created all HTML files from Markdown content and builds all my projects in demo mode.
 
@@ -11,7 +11,7 @@ I am able to ship demos of my apps because I use Flutter, which supports buildin
 
 You can find the source code for the pipeline as well as the markdown files [here](https://github.com/V4ldum/portfolio).
 
-## Tech Stack
+### Tech Stack
 
-- Languages: Dart, HTML, Jinja
-- Design: DaisyUI, TailwindCSS, Catppuccin
+- **Languages:** Dart, HTML, Jinja
+- **Design:** DaisyUI, TailwindCSS, Catppuccin
