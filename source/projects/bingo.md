@@ -17,3 +17,9 @@ The website was deployed on my personal VPS and is often being used.
 - **Management:** Riverpod
 - **Back-end:** Supabase
 - **Design:** ShadcnUI
+
+### Demonstration
+
+You can use a demo version of this app by clicking on the button below. Everything outside the app is simulated in your browser which means there is no way for you to mess anything up in the app. Please poke around to see what it does !
+
+The credentials are mock:mock.

@@ -49,12 +49,13 @@ class DeleteCommand extends Command {
 
 /// REPLACE <where> <from> <to> <what>
 // where is a Directory
+// from is a regexp that matches the string to modify.
 // what is a regexp that matches the files to modify. If unset it will match anything
 class ReplaceCommand extends Command {
   ReplaceCommand._({required this.where, required this.from, required this.to, required this.what});
 
   final String where;
-  final String from;
+  final RegExp from;
   final String to;
   final RegExp what;
 
@@ -68,7 +69,7 @@ class ReplaceCommand extends Command {
       return None;
     }
 
-    return Some(ReplaceCommand._(where: where, from: from, to: to, what: RegExp(what ?? '')));
+    return Some(ReplaceCommand._(where: where, from: RegExp(from), to: to, what: RegExp(what ?? '')));
   }
 
   @override
