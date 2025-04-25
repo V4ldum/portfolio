@@ -110,7 +110,7 @@ class _PortfolioMockerFinisher implements Finisher {
 
     // Skip clone in templating mode, useful for rebuilds in quick succession when updating the website
     if (skipClone) {
-      return; //_template('$buildDirectory/$folderName', folderName);
+      return;
     }
 
     // Clone the repository
@@ -158,25 +158,6 @@ class _PortfolioMockerFinisher implements Finisher {
       ]);
     }
   }
-
-  //   Future<void> _template(String workingDirectory, String projectName) async {
-  //     String htmlContent = r"""
-  // <!DOCTYPE html>
-  // <html data-theme="macchiato" lang="en">
-  // <head>
-  //     <meta charset="utf-8" />
-  //     <title>Works</title>
-  // </head>
-  // <body>
-  //     <p>$PROJECT works !</p>
-  // </body>
-  // </html>
-  // """;
-
-  //     final file = File('$workingDirectory/index.html');
-  //     await file.create(recursive: true);
-  //     await file.writeAsString(htmlContent.replaceAll('\$PROJECT', projectName));
-  //   }
 }
 
 class _MockData {
