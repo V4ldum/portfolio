@@ -179,13 +179,17 @@ class _MockData {
       buildOutputFolder: data["buildOutputFolder"] ?? "",
       commands:
           Vec.from(data["commands"] ?? []).iter().filterMapOpt((item) {
-            if (item is! String) {
+            if (item is! YamlMap || item.entries.isEmpty) {
+              context.log.err("Invalid command '$item', skipping");
               return None;
             }
 
-            final command = Command.build(item);
+            final entry = item.entries.first;
+            final command = Command.build(
+              MapEntry<String, List<String>>(entry.key, List.from(entry.value.map((item) => item ?? ''))),
+            );
             if (command.isNone()) {
-              context.log.err("Invalid command '$item', skipping");
+              context.log.err("Invalid command '${entry.key}: ${entry.value}', skipping");
             }
             return command;
           }).toList(),

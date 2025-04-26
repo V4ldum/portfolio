@@ -7,6 +7,20 @@ buildCommands:
  - flutter build web --release --base-href /demo/finance/ --no-tree-shake-icons # TODO remove no-tree-shake-icons
 buildOutputFolder: build/web
 commands:
- - DELETE lib/_l10n/intl_fr.arb 
- - REPLACE lib/shared \(await\spath_provider\.getApplicationDocumentsDirectory\(\)\)\.path '' app_cache_controller\.dart$
- #- TODO update import export 
+  - DELETE:
+    - lib/_l10n/intl_fr.arb 
+  - REPLACE:
+    - lib/shared 
+    - (await path_provider.getApplicationDocumentsDirectory()).path 
+    - ''
+    - app_cache_controller\.dart$
+  - REPLACE:
+    - lib 
+    - Import successful
+    - This feature doesn't work in mock
+    - ^*\.arb$
+  - REPLACE:
+    - lib 
+    - Export successful
+    - This feature doesn't work in mock
+    - ^*\.arb$

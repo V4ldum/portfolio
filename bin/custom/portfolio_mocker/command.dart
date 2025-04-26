@@ -5,15 +5,15 @@ import 'package:rust/rust.dart';
 abstract class Command {
   late final String _commandString;
 
-  static Option<Command> build(String command) {
-    final iterator = command.split(' ').iter();
-    final verb = iterator.next();
+  static Option<Command> build(MapEntry<String, List<String>> command) {
+    final verb = command.key;
+    final parameters = command.value;
 
     return switch (verb) {
-      "DELETE" => DeleteCommand._build(iterator),
-      "REPLACE" => ReplaceCommand._build(iterator),
+      "DELETE" => DeleteCommand._build(parameters.iter()),
+      "REPLACE" => ReplaceCommand._build(parameters.iter()),
       _ => None,
-    }.map((c) => c.._commandString = command);
+    }.map((c) => c.._commandString = "$verb: $parameters");
   }
 
   Future<void> run(String workingDirectory);
@@ -49,13 +49,12 @@ class DeleteCommand extends Command {
 
 /// REPLACE <where> <from> <to> <what>
 // where is a Directory
-// from is a regexp that matches the string to modify.
 // what is a regexp that matches the files to modify. If unset it will match anything
 class ReplaceCommand extends Command {
   ReplaceCommand._({required this.where, required this.from, required this.to, required this.what});
 
   final String where;
-  final RegExp from;
+  final String from;
   final String to;
   final RegExp what;
 
@@ -69,7 +68,7 @@ class ReplaceCommand extends Command {
       return None;
     }
 
-    return Some(ReplaceCommand._(where: where, from: RegExp(from), to: to, what: RegExp(what ?? '')));
+    return Some(ReplaceCommand._(where: where, from: from, to: to, what: RegExp(what ?? '')));
   }
 
   @override
