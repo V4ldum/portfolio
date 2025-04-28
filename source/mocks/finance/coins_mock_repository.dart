@@ -2,8 +2,9 @@ import 'package:finance/features/physical_assets/domain/models/coin_model.dart';
 import 'package:finance/features/physical_assets/domain/models/precious_metal_type_model.dart';
 import 'package:finance/features/physical_assets/domain/repositories/coins_repository.dart';
 
-// TODO fix CORS pour images
 class CoinsMockRepository implements CoinsRepository {
+  static const _kCorsProxy = 'https://corsproxy.io/?url=';
+
   static final coins = [
     CoinModel(
       id: '3',
@@ -17,15 +18,15 @@ class CoinsMockRepository implements CoinsRepository {
       composition: PreciousMetalTypeModel.gold,
       purity: 9000,
       obverse: CoinFaceModel(
-        pictureUrl: 'https://fr.numista.com/catalogue/photos/france/3116-original.jpg',
-        thumbnailUrl: 'https://fr.numista.com/catalogue/photos/france/3116-180.jpg',
+        pictureUrl: '${_kCorsProxy}https://fr.numista.com/catalogue/photos/france/3116-original.jpg',
+        thumbnailUrl: '${_kCorsProxy}https://fr.numista.com/catalogue/photos/france/3116-180.jpg',
         lettering: 'NAPOLEON III EMPEREUR\nBARRE',
         description: 'The bust of Napoleon III facing right',
         copyright: 'Heritage Auctions',
       ),
       reverse: CoinFaceModel(
-        pictureUrl: 'https://fr.numista.com/catalogue/photos/france/3117-original.jpg',
-        thumbnailUrl: 'https://fr.numista.com/catalogue/photos/france/3117-180.jpg',
+        pictureUrl: '${_kCorsProxy}https://fr.numista.com/catalogue/photos/france/3117-original.jpg',
+        thumbnailUrl: '${_kCorsProxy}https://fr.numista.com/catalogue/photos/france/3117-180.jpg',
         lettering: 'EMPIRE FRANÇAIS\n5\nFRANCS\nDATE\nA',
         description: 'The value above the date in a wreath',
         copyright: 'Heritage Auctions',
@@ -44,15 +45,15 @@ class CoinsMockRepository implements CoinsRepository {
       composition: PreciousMetalTypeModel.gold,
       purity: 9000,
       obverse: CoinFaceModel(
-        pictureUrl: 'https://fr.numista.com/catalogue/photos/france/3112-original.jpg',
-        thumbnailUrl: 'https://fr.numista.com/catalogue/photos/france/3112-180.jpg',
+        pictureUrl: '${_kCorsProxy}https://fr.numista.com/catalogue/photos/france/3112-original.jpg',
+        thumbnailUrl: '${_kCorsProxy}https://fr.numista.com/catalogue/photos/france/3112-180.jpg',
         lettering: 'NAPOLEON III EMPEREUR\nBARRE',
         description: 'Laurel head to right; bee - signed BARRE underneath - anchor.',
         copyright: 'Heritage Auctions',
       ),
       reverse: CoinFaceModel(
-        pictureUrl: 'https://fr.numista.com/catalogue/photos/france/3113-original.jpg',
-        thumbnailUrl: 'https://fr.numista.com/catalogue/photos/france/3113-180.jpg',
+        pictureUrl: '${_kCorsProxy}https://fr.numista.com/catalogue/photos/france/3113-original.jpg',
+        thumbnailUrl: '${_kCorsProxy}https://fr.numista.com/catalogue/photos/france/3113-180.jpg',
         lettering: 'EMPIRE FRANÇAIS\n10\nFRANCS\nDATE\nBB',
         description: 'Wreath of laurels surrounding the face value',
         copyright: 'Heritage Auctions',
@@ -71,22 +72,22 @@ class CoinsMockRepository implements CoinsRepository {
       composition: PreciousMetalTypeModel.gold,
       purity: 9000,
       obverse: CoinFaceModel(
-        pictureUrl: 'https://fr.numista.com/catalogue/photos/france/1965-original.jpg',
-        thumbnailUrl: 'https://fr.numista.com/catalogue/photos/france/1965-180.jpg',
+        pictureUrl: '${_kCorsProxy}https://fr.numista.com/catalogue/photos/france/1965-original.jpg',
+        thumbnailUrl: '${_kCorsProxy}https://fr.numista.com/catalogue/photos/france/1965-180.jpg',
         lettering: 'NAPOLEON III EMPEREUR',
         description: 'Head of Emperor Napoleon III with wreath facing right',
         copyright: '',
       ),
       reverse: CoinFaceModel(
-        pictureUrl: 'https://fr.numista.com/catalogue/photos/france/1966-original.jpg',
-        thumbnailUrl: 'https://fr.numista.com/catalogue/photos/france/1966-180.jpg',
+        pictureUrl: '${_kCorsProxy}https://fr.numista.com/catalogue/photos/france/1966-original.jpg',
+        thumbnailUrl: '${_kCorsProxy}https://fr.numista.com/catalogue/photos/france/1966-180.jpg',
         lettering: 'EMPIRE FRANÇAIS\n20 FR\nDATE',
         description: 'Coat of arms of France',
         copyright: '',
       ),
       edge: CoinFaceModel(
-        pictureUrl: 'https://fr.numista.com/catalogue/photos/france/65e704753bb2c1.05949925-original.jpg',
-        thumbnailUrl: 'https://fr.numista.com/catalogue/photos/france/65e704753bb2c1.05949925-180.jpg',
+        pictureUrl: '${_kCorsProxy}https://fr.numista.com/catalogue/photos/france/65e704753bb2c1.05949925-original.jpg',
+        thumbnailUrl: '${_kCorsProxy}https://fr.numista.com/catalogue/photos/france/65e704753bb2c1.05949925-180.jpg',
         lettering: '★  ★ ★ ★  ★  DIEU  ★   PROTEGE  ★  LA  ★  FRANCE',
         description: 'Plain excuse lettering',
         copyright: 'Polette',
@@ -104,15 +105,15 @@ class CoinsMockRepository implements CoinsRepository {
       composition: PreciousMetalTypeModel.gold,
       purity: 9000,
       obverse: CoinFaceModel(
-        pictureUrl: 'https://fr.numista.com/catalogue/photos/france/5429-original.jpg',
-        thumbnailUrl: 'https://fr.numista.com/catalogue/photos/france/5429-180.jpg',
+        pictureUrl: '${_kCorsProxy}https://fr.numista.com/catalogue/photos/france/5429-original.jpg',
+        thumbnailUrl: '${_kCorsProxy}https://fr.numista.com/catalogue/photos/france/5429-180.jpg',
         lettering: 'NAPOLEON III EMPEREUR',
         description: 'Napoleon III Head Laurel',
         copyright: 'Heritage Auctions',
       ),
       reverse: CoinFaceModel(
-        pictureUrl: 'https://fr.numista.com/catalogue/photos/france/5430-original.jpg',
-        thumbnailUrl: 'https://fr.numista.com/catalogue/photos/france/5430-180.jpg',
+        pictureUrl: '${_kCorsProxy}https://fr.numista.com/catalogue/photos/france/5430-original.jpg',
+        thumbnailUrl: '${_kCorsProxy}https://fr.numista.com/catalogue/photos/france/5430-180.jpg',
         lettering: 'EMPIRE FRANCAIS\n50 FR\nA DATE',
         description: 'Shield formed by an eagle on a beam surrounded by the collar of the Legion of Honor',
         copyright: 'Heritage Auctions',
@@ -137,15 +138,15 @@ class CoinsMockRepository implements CoinsRepository {
       composition: PreciousMetalTypeModel.gold,
       purity: 9000,
       obverse: CoinFaceModel(
-        pictureUrl: 'https://fr.numista.com/catalogue/photos/france/3114-original.jpg',
-        thumbnailUrl: 'https://fr.numista.com/catalogue/photos/france/3114-180.jpg',
+        pictureUrl: '${_kCorsProxy}https://fr.numista.com/catalogue/photos/france/3114-original.jpg',
+        thumbnailUrl: '${_kCorsProxy}https://fr.numista.com/catalogue/photos/france/3114-180.jpg',
         lettering: 'NAPOLEON III EMPEREUR\nBARRE',
         description: 'Napoleon III head laurel.',
         copyright: 'Heritage Auctions',
       ),
       reverse: CoinFaceModel(
-        pictureUrl: 'https://fr.numista.com/catalogue/photos/france/3115-original.jpg',
-        thumbnailUrl: 'https://fr.numista.com/catalogue/photos/france/3115-180.jpg',
+        pictureUrl: '${_kCorsProxy}https://fr.numista.com/catalogue/photos/france/3115-original.jpg',
+        thumbnailUrl: '${_kCorsProxy}https://fr.numista.com/catalogue/photos/france/3115-180.jpg',
         lettering: 'EMPIRE FRANÇAIS\n100 FRs\nBB DATE',
         description: 'Shield decorated with an eagle on a beam surrounded by the collar of the Legion of Honor.',
         copyright: 'Heritage Auctions',
@@ -170,22 +171,22 @@ class CoinsMockRepository implements CoinsRepository {
       composition: PreciousMetalTypeModel.gold,
       purity: 9000,
       obverse: CoinFaceModel(
-        pictureUrl: 'https://fr.numista.com/catalogue/photos/france/10884-original.jpg',
-        thumbnailUrl: 'https://fr.numista.com/catalogue/photos/france/10884-180.jpg',
+        pictureUrl: '${_kCorsProxy}https://fr.numista.com/catalogue/photos/france/10884-original.jpg',
+        thumbnailUrl: '${_kCorsProxy}https://fr.numista.com/catalogue/photos/france/10884-180.jpg',
         lettering: 'REPUBLIQUE FRANÇAISE',
         description: 'Marianne facing right',
         copyright: 'CassTaylor',
       ),
       reverse: CoinFaceModel(
-        pictureUrl: 'https://fr.numista.com/catalogue/photos/france/10885-original.jpg',
-        thumbnailUrl: 'https://fr.numista.com/catalogue/photos/france/10885-180.jpg',
+        pictureUrl: '${_kCorsProxy}https://fr.numista.com/catalogue/photos/france/10885-original.jpg',
+        thumbnailUrl: '${_kCorsProxy}https://fr.numista.com/catalogue/photos/france/10885-180.jpg',
         lettering: 'LIBERTE·EGALITE·FRATERNITE\n10 Fcs\nDATE',
         description: 'Cockerel facing left',
         copyright: 'CassTaylor',
       ),
       edge: CoinFaceModel(
-        pictureUrl: 'https://fr.numista.com/catalogue/photos/france/632f285c320799.39891937-original.jpg',
-        thumbnailUrl: 'https://fr.numista.com/catalogue/photos/france/632f285c320799.39891937-180.jpg',
+        pictureUrl: '${_kCorsProxy}https://fr.numista.com/catalogue/photos/france/632f285c320799.39891937-original.jpg',
+        thumbnailUrl: '${_kCorsProxy}https://fr.numista.com/catalogue/photos/france/632f285c320799.39891937-180.jpg',
         lettering: '',
         description: 'Reeded',
         copyright: 'Arno22',
@@ -203,16 +204,16 @@ class CoinsMockRepository implements CoinsRepository {
       composition: PreciousMetalTypeModel.gold,
       purity: 9170,
       obverse: CoinFaceModel(
-        pictureUrl: 'https://fr.numista.com/catalogue/photos/afrique_du_sud/1026-original.jpg',
-        thumbnailUrl: 'https://fr.numista.com/catalogue/photos/afrique_du_sud/1026-180.jpg',
+        pictureUrl: '${_kCorsProxy}https://fr.numista.com/catalogue/photos/afrique_du_sud/1026-original.jpg',
+        thumbnailUrl: '${_kCorsProxy}https://fr.numista.com/catalogue/photos/afrique_du_sud/1026-180.jpg',
         lettering: 'SUID-AFRIKA - SOUTH AFRICA',
         description:
             "Left facing portrait of Stephanus Johannes Paulus 'Paul' Kruger, president of the Zuid Afrikaansche Republiek, 1883-1900.",
         copyright: 'Heritage Auctions',
       ),
       reverse: CoinFaceModel(
-        pictureUrl: 'https://fr.numista.com/catalogue/photos/afrique_du_sud/1027-original.jpg',
-        thumbnailUrl: 'https://fr.numista.com/catalogue/photos/afrique_du_sud/1027-180.jpg',
+        pictureUrl: '${_kCorsProxy}https://fr.numista.com/catalogue/photos/afrique_du_sud/1027-original.jpg',
+        thumbnailUrl: '${_kCorsProxy}https://fr.numista.com/catalogue/photos/afrique_du_sud/1027-180.jpg',
         lettering: '1/4 KRUGERRAND\nDATE\nCLS\nFYNGOUD 1/4OZ FINE GOLD',
         description: 'Pronking Springbok dividing date',
         copyright: 'Heritage Auctions',
@@ -231,15 +232,15 @@ class CoinsMockRepository implements CoinsRepository {
       composition: PreciousMetalTypeModel.gold,
       purity: 9170,
       obverse: CoinFaceModel(
-        pictureUrl: 'https://fr.numista.com/catalogue/photos/afrique_du_sud/1020-original.jpg',
-        thumbnailUrl: 'https://fr.numista.com/catalogue/photos/afrique_du_sud/1020-180.jpg',
+        pictureUrl: '${_kCorsProxy}https://fr.numista.com/catalogue/photos/afrique_du_sud/1020-original.jpg',
+        thumbnailUrl: '${_kCorsProxy}https://fr.numista.com/catalogue/photos/afrique_du_sud/1020-180.jpg',
         lettering: 'SUID-AFRIKA • SOUTH AFRICA',
         description: 'Bust of Paul Kruger left, adapted from the design of Otto Schultz',
         copyright: 'Heritage Auctions',
       ),
       reverse: CoinFaceModel(
-        pictureUrl: 'https://fr.numista.com/catalogue/photos/afrique_du_sud/1021-original.jpg',
-        thumbnailUrl: 'https://fr.numista.com/catalogue/photos/afrique_du_sud/1021-180.jpg',
+        pictureUrl: '${_kCorsProxy}https://fr.numista.com/catalogue/photos/afrique_du_sud/1021-original.jpg',
+        thumbnailUrl: '${_kCorsProxy}https://fr.numista.com/catalogue/photos/afrique_du_sud/1021-180.jpg',
         lettering: '1/2 KRUGERRAND\nDA     TE\nFYNGOUD 1/2OZ FINE GOLD',
         description: 'Springbok walking right divides date',
         copyright: 'Heritage Auctions',
@@ -258,15 +259,15 @@ class CoinsMockRepository implements CoinsRepository {
       composition: PreciousMetalTypeModel.gold,
       purity: 9170,
       obverse: CoinFaceModel(
-        pictureUrl: 'https://fr.numista.com/catalogue/photos/afrique_du_sud/1002-original.jpg',
-        thumbnailUrl: 'https://fr.numista.com/catalogue/photos/afrique_du_sud/1002-180.jpg',
+        pictureUrl: '${_kCorsProxy}https://fr.numista.com/catalogue/photos/afrique_du_sud/1002-original.jpg',
+        thumbnailUrl: '${_kCorsProxy}https://fr.numista.com/catalogue/photos/afrique_du_sud/1002-180.jpg',
         lettering: 'SUID-AFRIKA * SOUTH AFRICA',
         description: 'Bust of Paul Kruger facing left',
         copyright: 'Heritage Auctions',
       ),
       reverse: CoinFaceModel(
-        pictureUrl: 'https://fr.numista.com/catalogue/photos/afrique_du_sud/1003-original.jpg',
-        thumbnailUrl: 'https://fr.numista.com/catalogue/photos/afrique_du_sud/1003-180.jpg',
+        pictureUrl: '${_kCorsProxy}https://fr.numista.com/catalogue/photos/afrique_du_sud/1003-original.jpg',
+        thumbnailUrl: '${_kCorsProxy}https://fr.numista.com/catalogue/photos/afrique_du_sud/1003-180.jpg',
         lettering: 'KRUGERRAND\nDA TE\nCLS\nFYNGOUD 1 OZ FINE GOLD',
         description: 'Springbok walking right divides date',
         copyright: 'Heritage Auctions',
@@ -285,15 +286,15 @@ class CoinsMockRepository implements CoinsRepository {
       composition: PreciousMetalTypeModel.gold,
       purity: 9000,
       obverse: CoinFaceModel(
-        pictureUrl: 'https://fr.numista.com/catalogue/photos/mexique/1380-original.jpg',
-        thumbnailUrl: 'https://fr.numista.com/catalogue/photos/mexique/1380-180.jpg',
+        pictureUrl: '${_kCorsProxy}https://fr.numista.com/catalogue/photos/mexique/1380-original.jpg',
+        thumbnailUrl: '${_kCorsProxy}https://fr.numista.com/catalogue/photos/mexique/1380-180.jpg',
         lettering: 'ESTADOS UNIDOS MEXICANOS',
         description: 'National arms, eagle right.',
         copyright: 'Heritage Auctions',
       ),
       reverse: CoinFaceModel(
-        pictureUrl: 'https://fr.numista.com/catalogue/photos/mexique/1381-original.jpg',
-        thumbnailUrl: 'https://fr.numista.com/catalogue/photos/mexique/1381-180.jpg',
+        pictureUrl: '${_kCorsProxy}https://fr.numista.com/catalogue/photos/mexique/1381-original.jpg',
+        thumbnailUrl: '${_kCorsProxy}https://fr.numista.com/catalogue/photos/mexique/1381-180.jpg',
         lettering: '50\nPESOS\n37,5 Gr.\nORO\nPURO\n1821 1929',
         description: 'Winged Victory.',
         copyright: 'Heritage Auctions',
@@ -318,9 +319,10 @@ class CoinsMockRepository implements CoinsRepository {
       composition: PreciousMetalTypeModel.gold,
       purity: 9999,
       obverse: CoinFaceModel(
-        pictureUrl: 'https://cdn.achat-or-et-argent.fr/ressources_v4/images/pieces/au/maple-leaf-2021-1-4-oz-or.webp',
+        pictureUrl:
+            '${_kCorsProxy}https://cdn.achat-or-et-argent.fr/ressources_v4/images/pieces/au/maple-leaf-2021-1-4-oz-or.webp',
         thumbnailUrl:
-            'https://cdn.achat-or-et-argent.fr/ressources_v4/images/pieces/au/thumbs/maple-leaf-2021-1-4-oz-or.webp',
+            '${_kCorsProxy}https://cdn.achat-or-et-argent.fr/ressources_v4/images/pieces/au/thumbs/maple-leaf-2021-1-4-oz-or.webp',
         lettering: 'ELIZABETH II\n10 DOLLARS DATE',
         description:
             'Head of Queen Elizabeth II, as at 77 years of age, bare headed, wearing necklace and earrings, facing right.',
@@ -328,9 +330,9 @@ class CoinsMockRepository implements CoinsRepository {
       ),
       reverse: CoinFaceModel(
         pictureUrl:
-            'https://cdn.achat-or-et-argent.fr/ressources_v4/images/pieces/au/maple-leaf-1_4once-or1.webp|https://cdn.achat-or-et-argent.fr/ressources_v4/images/pieces/au/thumbs/maple-leaf-1_4once-or1.webp',
+            '${_kCorsProxy}https://cdn.achat-or-et-argent.fr/ressources_v4/images/pieces/au/maple-leaf-1_4once-or1.webp|https://cdn.achat-or-et-argent.fr/ressources_v4/images/pieces/au/thumbs/maple-leaf-1_4once-or1.webp',
         thumbnailUrl:
-            'https://cdn.achat-or-et-argent.fr/ressources_v4/images/pieces/au/thumbs/maple-leaf-1_4once-or1.webp',
+            '${_kCorsProxy}https://cdn.achat-or-et-argent.fr/ressources_v4/images/pieces/au/thumbs/maple-leaf-1_4once-or1.webp',
         lettering: 'CANADA\n9999  9999\nFINE GOLD 1⁄4 OZ OR PUR',
         description: 'Coin features a stylized depiction of a sugar maple (Acer saccharum) leaf.',
         copyright: 'Godot & Fils',
@@ -349,18 +351,20 @@ class CoinsMockRepository implements CoinsRepository {
       composition: PreciousMetalTypeModel.gold,
       purity: 9999,
       obverse: CoinFaceModel(
-        pictureUrl: 'https://cdn.achat-or-et-argent.fr/ressources_v4/images/pieces/au/1-2-Oz-Or-Maple-2021-2.webp',
+        pictureUrl:
+            '${_kCorsProxy}https://cdn.achat-or-et-argent.fr/ressources_v4/images/pieces/au/1-2-Oz-Or-Maple-2021-2.webp',
         thumbnailUrl:
-            'https://cdn.achat-or-et-argent.fr/ressources_v4/images/pieces/au/thumbs/1-2-Oz-Or-Maple-2021-2.webp',
+            '${_kCorsProxy}https://cdn.achat-or-et-argent.fr/ressources_v4/images/pieces/au/thumbs/1-2-Oz-Or-Maple-2021-2.webp',
         lettering: 'ELIZABETH II\n20 DOLLARS DATE',
         description:
             'Head of Queen Elizabeth II, as at 77 years of age, bare headed, wearing necklace and earrings, facing right. Below, double dates “1952” and “2022”, separated by four pearls symbolizing the four effigies that have graced Canadian coins throughout her reign. Inscription with legend surrounding obverse. Radial line background.',
         copyright: 'Godot & Fils',
       ),
       reverse: CoinFaceModel(
-        pictureUrl: 'https://cdn.achat-or-et-argent.fr/ressources_v4/images/pieces/au/maple-leaf-1_2once-or-1.webp',
+        pictureUrl:
+            '${_kCorsProxy}https://cdn.achat-or-et-argent.fr/ressources_v4/images/pieces/au/maple-leaf-1_2once-or-1.webp',
         thumbnailUrl:
-            'https://cdn.achat-or-et-argent.fr/ressources_v4/images/pieces/au/thumbs/maple-leaf-1_2once-or-1.webp',
+            '${_kCorsProxy}https://cdn.achat-or-et-argent.fr/ressources_v4/images/pieces/au/thumbs/maple-leaf-1_2once-or-1.webp',
         lettering: 'CANADA\n9999  9999\nFINE GOLD 1/2 OZ OR PUR',
         description:
             'Classic maple leaf design, encircled by lettering with small maple leaf security feature below with the number last two digits of the year engraved. Radial line background.',
@@ -380,9 +384,10 @@ class CoinsMockRepository implements CoinsRepository {
       composition: PreciousMetalTypeModel.gold,
       purity: 9999,
       obverse: CoinFaceModel(
-        pictureUrl: 'https://cdn.achat-or-et-argent.fr/ressources_v4/images/pieces/au/maple-leaf-1oz-or-20212.webp',
+        pictureUrl:
+            '${_kCorsProxy}https://cdn.achat-or-et-argent.fr/ressources_v4/images/pieces/au/maple-leaf-1oz-or-20212.webp',
         thumbnailUrl:
-            'https://cdn.achat-or-et-argent.fr/ressources_v4/images/pieces/au/thumbs/maple-leaf-1oz-or-20212.webp',
+            '${_kCorsProxy}https://cdn.achat-or-et-argent.fr/ressources_v4/images/pieces/au/thumbs/maple-leaf-1oz-or-20212.webp',
         lettering: 'ELIZABETH II\n50 DOLLARS DATE',
         description:
             'Head of Queen Elizabeth II, as at 77 years of age, bare headed, wearing necklace and earrings, facing right.',
@@ -390,9 +395,9 @@ class CoinsMockRepository implements CoinsRepository {
       ),
       reverse: CoinFaceModel(
         pictureUrl:
-            'https://cdn.achat-or-et-argent.fr/ressources_v4/images/pieces/au/maple-leaf-1once-or-1.webp|https://cdn.achat-or-et-argent.fr/ressources_v4/images/pieces/au/thumbs/maple-leaf-1once-or-1.webp',
+            '${_kCorsProxy}https://cdn.achat-or-et-argent.fr/ressources_v4/images/pieces/au/maple-leaf-1once-or-1.webp|https://cdn.achat-or-et-argent.fr/ressources_v4/images/pieces/au/thumbs/maple-leaf-1once-or-1.webp',
         thumbnailUrl:
-            'https://cdn.achat-or-et-argent.fr/ressources_v4/images/pieces/au/thumbs/maple-leaf-1once-or-1.webp',
+            '${_kCorsProxy}https://cdn.achat-or-et-argent.fr/ressources_v4/images/pieces/au/thumbs/maple-leaf-1once-or-1.webp',
         lettering: 'CANADA\n9999  9999\nFINE GOLD 1 OZ OR PUR',
         description: 'Classic maple leaf design, surrounded by lettering with security leaf and radial lines.',
         copyright: 'Godot & Fils',
@@ -411,15 +416,19 @@ class CoinsMockRepository implements CoinsRepository {
       composition: PreciousMetalTypeModel.gold,
       purity: 9167,
       obverse: CoinFaceModel(
-        pictureUrl: 'https://fr.numista.com/catalogue/photos/etats-unis/60f33616b42f12.40201666-original.jpg',
-        thumbnailUrl: 'https://fr.numista.com/catalogue/photos/etats-unis/60f33616b42f12.40201666-180.jpg',
+        pictureUrl:
+            '${_kCorsProxy}https://fr.numista.com/catalogue/photos/etats-unis/60f33616b42f12.40201666-original.jpg',
+        thumbnailUrl:
+            '${_kCorsProxy}https://fr.numista.com/catalogue/photos/etats-unis/60f33616b42f12.40201666-180.jpg',
         lettering: 'LIBERTY\nDATE\nASG',
         description: 'The effigy of Liberty with the year to the right',
         copyright: 'JM Bullion',
       ),
       reverse: CoinFaceModel(
-        pictureUrl: 'https://fr.numista.com/catalogue/photos/etats-unis/60f336174900b0.61187488-original.jpg',
-        thumbnailUrl: 'https://fr.numista.com/catalogue/photos/etats-unis/60f336174900b0.61187488-180.jpg',
+        pictureUrl:
+            '${_kCorsProxy}https://fr.numista.com/catalogue/photos/etats-unis/60f336174900b0.61187488-original.jpg',
+        thumbnailUrl:
+            '${_kCorsProxy}https://fr.numista.com/catalogue/photos/etats-unis/60f336174900b0.61187488-180.jpg',
         lettering:
             'UNITED STATES OF AMERICA\nE PLURIBUS UNUM\nIN GOD\nWE TRUST\n\nRG JN\n10 DOLLARS ★ 1/4 OZ. FINE GOLD',
         description:
@@ -440,15 +449,19 @@ class CoinsMockRepository implements CoinsRepository {
       composition: PreciousMetalTypeModel.gold,
       purity: 9167,
       obverse: CoinFaceModel(
-        pictureUrl: 'https://fr.numista.com/catalogue/photos/etats-unis/60f33786368825.32963920-original.jpg',
-        thumbnailUrl: 'https://fr.numista.com/catalogue/photos/etats-unis/60f33786368825.32963920-180.jpg',
+        pictureUrl:
+            '${_kCorsProxy}https://fr.numista.com/catalogue/photos/etats-unis/60f33786368825.32963920-original.jpg',
+        thumbnailUrl:
+            '${_kCorsProxy}https://fr.numista.com/catalogue/photos/etats-unis/60f33786368825.32963920-180.jpg',
         lettering: 'LIBERTY\nDATE\nASG',
         description: 'An effigy of Liberty with the year to the right and stars surrounding around the rim',
         copyright: 'JM Bullion',
       ),
       reverse: CoinFaceModel(
-        pictureUrl: 'https://fr.numista.com/catalogue/photos/etats-unis/60f33786c9d247.49704084-original.jpg',
-        thumbnailUrl: 'https://fr.numista.com/catalogue/photos/etats-unis/60f33786c9d247.49704084-180.jpg',
+        pictureUrl:
+            '${_kCorsProxy}https://fr.numista.com/catalogue/photos/etats-unis/60f33786c9d247.49704084-original.jpg',
+        thumbnailUrl:
+            '${_kCorsProxy}https://fr.numista.com/catalogue/photos/etats-unis/60f33786c9d247.49704084-180.jpg',
         lettering:
             'UNITED STATES OF AMERICA\nE PLURIBUS UNUM\nIN GOD\nWE TRUST\n\nRG JN\n25 DOLLARS ★ 1/2 OZ. FINE GOLD',
         description:
@@ -469,23 +482,29 @@ class CoinsMockRepository implements CoinsRepository {
       composition: PreciousMetalTypeModel.gold,
       purity: 9167,
       obverse: CoinFaceModel(
-        pictureUrl: 'https://fr.numista.com/catalogue/photos/etats-unis/60f338a5a92ef8.85802265-original.jpg',
-        thumbnailUrl: 'https://fr.numista.com/catalogue/photos/etats-unis/60f338a5a92ef8.85802265-180.jpg',
+        pictureUrl:
+            '${_kCorsProxy}https://fr.numista.com/catalogue/photos/etats-unis/60f338a5a92ef8.85802265-original.jpg',
+        thumbnailUrl:
+            '${_kCorsProxy}https://fr.numista.com/catalogue/photos/etats-unis/60f338a5a92ef8.85802265-180.jpg',
         lettering: 'LIBERTY\nDATE\nASG',
         description: 'An effigy of Liberty with the date to the right',
         copyright: 'JM Bullion',
       ),
       reverse: CoinFaceModel(
-        pictureUrl: 'https://fr.numista.com/catalogue/photos/etats-unis/60f338a671cdc0.49770263-original.jpg',
-        thumbnailUrl: 'https://fr.numista.com/catalogue/photos/etats-unis/60f338a671cdc0.49770263-180.jpg',
+        pictureUrl:
+            '${_kCorsProxy}https://fr.numista.com/catalogue/photos/etats-unis/60f338a671cdc0.49770263-original.jpg',
+        thumbnailUrl:
+            '${_kCorsProxy}https://fr.numista.com/catalogue/photos/etats-unis/60f338a671cdc0.49770263-180.jpg',
         lettering: 'UNITED STATES OF AMERICA\nE PLURIBUS UNUM\nIN GOD\nWE TRUST\n\nRG JN\n50 DOLLARS ★ 1 OZ. FINE GOLD',
         description:
             'A bald eagle head facing left with the country name and motto at the top and the denomination and amount of gold below',
         copyright: 'JM Bullion',
       ),
       edge: CoinFaceModel(
-        pictureUrl: 'https://fr.numista.com/catalogue/photos/etats-unis/60f338a6f31047.80765402-original.jpg',
-        thumbnailUrl: 'https://fr.numista.com/catalogue/photos/etats-unis/60f338a671cdc0.49770263-180.jpg',
+        pictureUrl:
+            '${_kCorsProxy}https://fr.numista.com/catalogue/photos/etats-unis/60f338a6f31047.80765402-original.jpg',
+        thumbnailUrl:
+            '${_kCorsProxy}https://fr.numista.com/catalogue/photos/etats-unis/60f338a671cdc0.49770263-180.jpg',
         lettering: '',
         description: 'Reeded with security feature',
         copyright: 'JM Bullion',
@@ -504,17 +523,18 @@ class CoinsMockRepository implements CoinsRepository {
       purity: 9990,
       obverse: CoinFaceModel(
         pictureUrl:
-            'https://cdn.achat-or-et-argent.fr/ressources_v4/images/pieces/au/Philharmonique-1_4-Oz-Or-2021.webp',
+            '${_kCorsProxy}https://cdn.achat-or-et-argent.fr/ressources_v4/images/pieces/au/Philharmonique-1_4-Oz-Or-2021.webp',
         thumbnailUrl:
-            'https://cdn.achat-or-et-argent.fr/ressources_v4/images/pieces/au/thumbs/Philharmonique-1_4-Oz-Or-2021.webp',
+            '${_kCorsProxy}https://cdn.achat-or-et-argent.fr/ressources_v4/images/pieces/au/thumbs/Philharmonique-1_4-Oz-Or-2021.webp',
         lettering: 'REPUBLIK ÖSTERREICH\n¼ UNZE GOLD 999.9\nDATE\n25 EURO',
         description: 'The Great Organ of the Vienna Philharmonic Orchestra.',
         copyright: 'Godot & Fils',
       ),
       reverse: CoinFaceModel(
-        pictureUrl: 'https://cdn.achat-or-et-argent.fr/ressources_v4/images/pieces/au/philharmonique-or-GENERAL.webp',
+        pictureUrl:
+            '${_kCorsProxy}https://cdn.achat-or-et-argent.fr/ressources_v4/images/pieces/au/philharmonique-or-GENERAL.webp',
         thumbnailUrl:
-            'https://cdn.achat-or-et-argent.fr/ressources_v4/images/pieces/au/thumbs/philharmonique-or-GENERAL.webp',
+            '${_kCorsProxy}https://cdn.achat-or-et-argent.fr/ressources_v4/images/pieces/au/thumbs/philharmonique-or-GENERAL.webp',
         lettering: 'WIENER PHILARMONIKER',
         description: 'Musical instruments of the Vienna Philharmonic Orchestra.Automatically translated',
         copyright: 'Godot & Fils',
@@ -534,17 +554,18 @@ class CoinsMockRepository implements CoinsRepository {
       purity: 9990,
       obverse: CoinFaceModel(
         pictureUrl:
-            'https://cdn.achat-or-et-argent.fr/ressources_v4/images/pieces/au/philharmonique-1-2-oz-or-50-euro-or-2020.webp',
+            '${_kCorsProxy}https://cdn.achat-or-et-argent.fr/ressources_v4/images/pieces/au/philharmonique-1-2-oz-or-50-euro-or-2020.webp',
         thumbnailUrl:
-            'https://cdn.achat-or-et-argent.fr/ressources_v4/images/pieces/au/thumbs/philharmonique-1-2-oz-or-50-euro-or-2020.webp',
+            '${_kCorsProxy}https://cdn.achat-or-et-argent.fr/ressources_v4/images/pieces/au/thumbs/philharmonique-1-2-oz-or-50-euro-or-2020.webp',
         lettering: 'REPUBLIK ÖSTERREICH\n½ UNZE GOLD 999.9\nDATE\n50 EURO',
         description: 'The Great Organ of the Vienna Philharmonic Orchestra.',
         copyright: 'Godot & Fils',
       ),
       reverse: CoinFaceModel(
-        pictureUrl: 'https://cdn.achat-or-et-argent.fr/ressources_v4/images/pieces/au/philharmonique-or-GENERAL.webp',
+        pictureUrl:
+            '${_kCorsProxy}https://cdn.achat-or-et-argent.fr/ressources_v4/images/pieces/au/philharmonique-or-GENERAL.webp',
         thumbnailUrl:
-            'https://cdn.achat-or-et-argent.fr/ressources_v4/images/pieces/au/thumbs/philharmonique-or-GENERAL.webp',
+            '${_kCorsProxy}https://cdn.achat-or-et-argent.fr/ressources_v4/images/pieces/au/thumbs/philharmonique-or-GENERAL.webp',
         lettering: 'WIENER PHILHARMONIKER',
         description: 'The design is of musical instruments representing the Vienna Philharmonic Orchestra.',
         copyright: 'Godot & Fils',
@@ -563,17 +584,19 @@ class CoinsMockRepository implements CoinsRepository {
       composition: PreciousMetalTypeModel.gold,
       purity: 9990,
       obverse: CoinFaceModel(
-        pictureUrl: 'https://cdn.achat-or-et-argent.fr/ressources_v4/images/pieces/au/philharmonique-or-1oz-2020.webp',
+        pictureUrl:
+            '${_kCorsProxy}https://cdn.achat-or-et-argent.fr/ressources_v4/images/pieces/au/philharmonique-or-1oz-2020.webp',
         thumbnailUrl:
-            'https://cdn.achat-or-et-argent.fr/ressources_v4/images/pieces/au/thumbs/philharmonique-or-1oz-2020.webp',
+            '${_kCorsProxy}https://cdn.achat-or-et-argent.fr/ressources_v4/images/pieces/au/thumbs/philharmonique-or-1oz-2020.webp',
         lettering: '|REPUBLIK ÖSTERREICH\n1 UNZE GOLD 999.9\nDATE\n100 EURO',
         description: 'The Golden Hall organ',
         copyright: 'Godot & Fils',
       ),
       reverse: CoinFaceModel(
-        pictureUrl: 'https://cdn.achat-or-et-argent.fr/ressources_v4/images/pieces/au/philharmonique-or-GENERAL.webp',
+        pictureUrl:
+            '${_kCorsProxy}https://cdn.achat-or-et-argent.fr/ressources_v4/images/pieces/au/philharmonique-or-GENERAL.webp',
         thumbnailUrl:
-            'https://cdn.achat-or-et-argent.fr/ressources_v4/images/pieces/au/thumbs/philharmonique-or-GENERAL.webp',
+            '${_kCorsProxy}https://cdn.achat-or-et-argent.fr/ressources_v4/images/pieces/au/thumbs/philharmonique-or-GENERAL.webp',
         lettering: 'WIENER PHILHARMONIKER',
         description: 'Musical instruments',
         copyright: 'Godot & Fils',
@@ -598,15 +621,17 @@ class CoinsMockRepository implements CoinsRepository {
       composition: PreciousMetalTypeModel.silver,
       purity: 9990,
       obverse: CoinFaceModel(
-        pictureUrl: 'https://fr.numista.com/catalogue/photos/autriche/62b2beed57fdb7.04290240-original.jpg',
-        thumbnailUrl: 'https://fr.numista.com/catalogue/photos/autriche/62b2beed57fdb7.04290240-180.jpg',
+        pictureUrl:
+            '${_kCorsProxy}https://fr.numista.com/catalogue/photos/autriche/62b2beed57fdb7.04290240-original.jpg',
+        thumbnailUrl: '${_kCorsProxy}https://fr.numista.com/catalogue/photos/autriche/62b2beed57fdb7.04290240-180.jpg',
         lettering: 'REPUBLIK ÖSTERREICH\n1 UNZE FEINSILBER\n2022\n1,50 EURO',
         description: 'The golden concert hall',
         copyright: 'layflags',
       ),
       reverse: CoinFaceModel(
-        pictureUrl: 'https://fr.numista.com/catalogue/photos/autriche/62b2beedc36f02.68846977-original.jpg',
-        thumbnailUrl: 'https://fr.numista.com/catalogue/photos/autriche/62b2beedc36f02.68846977-180.jpg',
+        pictureUrl:
+            '${_kCorsProxy}https://fr.numista.com/catalogue/photos/autriche/62b2beedc36f02.68846977-original.jpg',
+        thumbnailUrl: '${_kCorsProxy}https://fr.numista.com/catalogue/photos/autriche/62b2beedc36f02.68846977-180.jpg',
         lettering: 'WIENER PHILHARMONIKER\nSILBER',
         description: 'Music instruments',
         copyright: 'layflags',
@@ -625,15 +650,19 @@ class CoinsMockRepository implements CoinsRepository {
       composition: PreciousMetalTypeModel.silver,
       purity: 9990,
       obverse: CoinFaceModel(
-        pictureUrl: 'https://fr.numista.com/catalogue/photos/royaume-uni/63d58db1788ed3.11086427-original.jpg',
-        thumbnailUrl: 'https://fr.numista.com/catalogue/photos/royaume-uni/63d58db1788ed3.11086427-180.jpg',
+        pictureUrl:
+            '${_kCorsProxy}https://fr.numista.com/catalogue/photos/royaume-uni/63d58db1788ed3.11086427-original.jpg',
+        thumbnailUrl:
+            '${_kCorsProxy}https://fr.numista.com/catalogue/photos/royaume-uni/63d58db1788ed3.11086427-180.jpg',
         lettering: 'CHARLES III·D·G·REX·F·D·2 POUNDS ·\nMJ',
         description: 'Uncrowned portrait of King Charles III left, legend around.',
         copyright: 'The Royal Mint, 2023',
       ),
       reverse: CoinFaceModel(
-        pictureUrl: 'https://fr.numista.com/catalogue/photos/royaume-uni/63d58db24e9864.50030186-original.jpg',
-        thumbnailUrl: 'https://fr.numista.com/catalogue/photos/royaume-uni/63d58db24e9864.50030186-180.jpg',
+        pictureUrl:
+            '${_kCorsProxy}https://fr.numista.com/catalogue/photos/royaume-uni/63d58db24e9864.50030186-original.jpg',
+        thumbnailUrl:
+            '${_kCorsProxy}https://fr.numista.com/catalogue/photos/royaume-uni/63d58db24e9864.50030186-180.jpg',
         lettering: "BRITANNIA ' 2023 ' 1 oz ' 999 ' FINE ' SILVER '\nDECUS ET TUTAMEN\nNATHAN",
         description:
             'Standing image of Britannia holding a trident in her right hand, with a shield bearing the Union flag and an olive branch in her left hand, security padlock, legend around.',
@@ -654,23 +683,28 @@ class CoinsMockRepository implements CoinsRepository {
       purity: 9990,
       obverse: CoinFaceModel(
         pictureUrl:
-            'https://fr.numista.com/catalogue/photos/etats-unis/60dbfaa3ed3aa9.37302635-original.jpg|https://fr.numista.com/catalogue/photos/etats-unis/60dbfaa3ed3aa9.37302635-180.jpg',
-        thumbnailUrl: 'https://fr.numista.com/catalogue/photos/etats-unis/60dbfaa3ed3aa9.37302635-180.jpg',
+            '${_kCorsProxy}https://fr.numista.com/catalogue/photos/etats-unis/60dbfaa3ed3aa9.37302635-original.jpg|https://fr.numista.com/catalogue/photos/etats-unis/60dbfaa3ed3aa9.37302635-180.jpg',
+        thumbnailUrl:
+            '${_kCorsProxy}https://fr.numista.com/catalogue/photos/etats-unis/60dbfaa3ed3aa9.37302635-180.jpg',
         lettering: 'LIBERTY\nIN GOD\nWE TRUST\nAAW\n2021',
         description:
             'Liberty in full stride, enveloped in folds of the flag, with her right hand extended and branches of laurel and oak in her left.',
         copyright: 'Image courtesy of the United States Mint',
       ),
       reverse: CoinFaceModel(
-        pictureUrl: 'https://fr.numista.com/catalogue/photos/etats-unis/60dbfaa4d928d2.25807912-original.jpg',
-        thumbnailUrl: 'https://fr.numista.com/catalogue/photos/etats-unis/60dbfaa4d928d2.25807912-180.jpg',
+        pictureUrl:
+            '${_kCorsProxy}https://fr.numista.com/catalogue/photos/etats-unis/60dbfaa4d928d2.25807912-original.jpg',
+        thumbnailUrl:
+            '${_kCorsProxy}https://fr.numista.com/catalogue/photos/etats-unis/60dbfaa4d928d2.25807912-180.jpg',
         lettering: 'UNITED STATES OF AMERICA\n·ONE DOLLAR·\nE PLURIBUS UNUM\n1 OZ. FINE SILVER',
         description: 'An eagle as it approaches a landing, carrying an oak branch.',
         copyright: 'Image courtesy of the United States Mint',
       ),
       edge: CoinFaceModel(
-        pictureUrl: 'https://fr.numista.com/catalogue/photos/etats-unis/626fdf502f00f2.50312004-original.jpg',
-        thumbnailUrl: 'https://fr.numista.com/catalogue/photos/etats-unis/626fdf502f00f2.50312004-180.jpg',
+        pictureUrl:
+            '${_kCorsProxy}https://fr.numista.com/catalogue/photos/etats-unis/626fdf502f00f2.50312004-original.jpg',
+        thumbnailUrl:
+            '${_kCorsProxy}https://fr.numista.com/catalogue/photos/etats-unis/626fdf502f00f2.50312004-180.jpg',
         lettering: '',
         description: 'Reeded',
         copyright: 'Harryg',
