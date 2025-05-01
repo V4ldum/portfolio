@@ -16,3 +16,4 @@ You can find the source code [here](https://github.com/V4ldum/poc-spyware-python
 ### Tech Stack
 
 - **Language:** Python
+- **Notable dependencies:** pyscreenshot, python-sounddevice, opencv-python

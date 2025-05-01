@@ -14,4 +14,4 @@ You can find the source code for the pipeline as well as the markdown files [her
 ### Tech Stack
 
 - **Languages:** Dart, HTML, Jinja
-- **Design:** DaisyUI, TailwindCSS, Catppuccin
+- **Design:** DaisyUI, TailwindCSS

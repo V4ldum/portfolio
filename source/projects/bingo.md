@@ -14,7 +14,7 @@ The website was deployed on my personal VPS and is often being used.
 ### Tech Stack
 
 - **Front-end:** Flutter (Web)
-- **Management:** Riverpod
+- **State management:** Riverpod
 - **Back-end:** Supabase
 - **Design:** ShadcnUI
 

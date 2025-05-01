@@ -12,7 +12,7 @@ I built this application to have a centralized summary of my finance portfolio. 
 ### Tech Stack
 
 - **Front-end:** Flutter
-- **Management:** Riverpod
+- **State management:** Riverpod
 - **Back-end:** Custom API in Rust, Finary's API
 - **Design:** Material
 
