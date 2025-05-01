@@ -69,7 +69,7 @@ class _PortfolioMockerFinisher implements Finisher {
       if (file is! Directory) {
         continue;
       }
-      final files = (await file.list().toList()).whereType<File>().toList();
+      final files = (await file.list(recursive: true).toList()).whereType<File>().toList();
 
       // Only work with folders that have a mock data file
       if (files.iter().any((f) => f.uri.pathSegments.last == _mockDataFilename)) {
@@ -91,7 +91,8 @@ class _PortfolioMockerFinisher implements Finisher {
     final data = _MockData.fromYaml(await mockDataFile.readAsString(), context);
 
     final folderName = mockDataFile.uri.pathSegments.reversed.toList()[1];
-    final workingDirectory = '$gitDirectory/$folderName';
+    final baseDirectory = '$gitDirectory/$folderName';
+    final workingDirectory = '$baseDirectory${data.appSubdirectory.isNotEmpty ? "/${data.appSubdirectory}" : ""}';
 
     context.log.detail('Mocking $folderName');
 
@@ -114,17 +115,14 @@ class _PortfolioMockerFinisher implements Finisher {
     }
 
     // Clone the repository
-    await Process.run("git", ["clone", data.git, workingDirectory]);
+    await Process.run("git", ["clone", data.git, baseDirectory]);
 
     if (data.gitCommitHash.isNotEmpty) {
       final headCommitHash =
-          (await Process.run("git", [
-            'rev-parse',
-            'HEAD',
-          ], workingDirectory: workingDirectory)).stdout.toString().trim();
+          (await Process.run("git", ['rev-parse', 'HEAD'], workingDirectory: baseDirectory)).stdout.toString().trim();
 
       if (headCommitHash != data.gitCommitHash) {
-        context.log.warn('More recent commits available');
+        context.log.warn('$folderName: More recent commits available');
       }
 
       await Process.run("git", ["checkout", data.gitCommitHash]);
@@ -137,7 +135,11 @@ class _PortfolioMockerFinisher implements Finisher {
 
     // Move mocked files
     for (final file in mockFiles) {
-      await file.copy('$workingDirectory/lib/${file.uri.pathSegments.last}');
+      final relativePath = file.path
+          .replaceAll('\\', '/')
+          .replaceFirst("${mocksSourceDirectory.replaceAll("\\", "/")}/$folderName/", "");
+
+      await file.copy('$workingDirectory/lib/$relativePath');
     }
 
     // Build the project and move built files in the correct place
@@ -164,6 +166,7 @@ class _MockData {
   _MockData._({
     required this.git,
     required this.gitCommitHash,
+    required this.appSubdirectory,
     required this.buildCommands,
     required this.buildOutputFolder,
     required this.commands,
@@ -175,6 +178,7 @@ class _MockData {
     return _MockData._(
       git: data["git"] ?? "",
       gitCommitHash: data["gitCommitHash"] ?? "",
+      appSubdirectory: data["appSubdirectory"] ?? "",
       buildCommands: List.from(data["buildCommands"] ?? []),
       buildOutputFolder: data["buildOutputFolder"] ?? "",
       commands:
@@ -198,6 +202,7 @@ class _MockData {
 
   final String git;
   final String gitCommitHash;
+  final String appSubdirectory;
   final List<String> buildCommands;
   final String buildOutputFolder;
   final List<Command> commands;

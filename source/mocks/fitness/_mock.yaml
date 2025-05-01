@@ -1,0 +1,74 @@
+git: https://github.com/V4ldum/fitness-app
+gitCommitHash: 1be99feba20654b9a97fd1c3691420f65b0fee4f
+appSubdirectory: "app"
+buildCommands: 
+ - flutter create --platforms=web .
+ - flutter build web --release --base-href /demo/fitness/
+buildOutputFolder: app/build/web
+commands:
+ - REPLACE:
+    - lib/features/comments/widgets
+    - '"${Strings.apiProtocol}${Strings.apiHost}${Strings.apiUserPath}/$username${Strings.apiPicturePath}?token=${context.read<AppWideProvider>().accessToken}"'
+    - '"https://i.imgflip.com/2l1afi.jpg"'
+    - ^.*\.dart$
+ - REPLACE:
+    - lib/features/comments/widgets
+    - '"${Strings.apiProtocol}${Strings.apiHost}${Strings.apiUserPath}${Strings.apiPicturePath}?token=${context.read<AppWideProvider>().accessToken}"'
+    - '""'
+    - ^.*\.dart$
+ - REPLACE:
+    - lib/features/profile/widgets
+    - '"http://${Strings.apiHost}${Strings.apiUserPath}${Strings.apiPicturePath}?token=${context.read<AppWideProvider>().accessToken}"'
+    - '""'
+    - ^.*\.dart$
+ - REPLACE:
+     - lib/features/profile/widgets
+     - Platform.isAndroid
+     - 'false'
+     - ^.*settings\.dart$
+ - REPLACE:
+    - lib/features/profile
+    - Toutes
+    - All
+    - ^.*\.dart$
+ - REPLACE:
+    - lib/features/profile
+    - Programmes
+    - Workouts
+    - ^.*\.dart$
+ - REPLACE:
+    - lib/features/profile
+    - Aucune
+    - None
+    - ^.*\.dart$
+ - REPLACE:
+    - lib/features/main/widgets
+    - commentaire
+    - comment
+    - ^.*comments\.dart$
+ - REPLACE:
+    - lib/features/main/widgets
+    - '"Bloc'
+    - '"Block'
+    - ^.*bloc_card\.dart$
+ - REPLACE:
+    - lib/features/main/domain/models
+    - Repos
+    - Rest
+    - ^.*\.dart$
+ - REPLACE:
+    - lib/features/main/domain/models
+    - Effort
+    - Work
+    - ^.*\.dart$
+ - REPLACE:
+    - lib/features/main/domain/models
+    - Pause
+    - Break
+    - ^.*\.dart$
+ - REPLACE:
+    - lib/features/main/domain/models
+    - Série
+    - Set
+    - ^.*\.dart$
+
