@@ -1,21 +1,26 @@
 {% if demo in ['browser', 'mobile'] and demoUrl is defined %}
 
-<button class="btn btn-outline btn-primary btn-wide" onclick="demo()">Demo</button>
+<button class="btn btn-accent btn-wide" onclick="demo()">Demo</button>
 <div id="demo" class="fixed -top-1/2 left-1/2 -translate-1/2 opacity-0 transition-all duration-750 ease-out">
 
     {# Browser Mock #}
     {% if demo == 'browser' %}
 
-    <div class="mockup-browser bg-base-200 border">
+    <div class="mockup-browser border bg-base-200 w-full">
         <div class="mockup-browser-toolbar">
-            <div class="input border-base-300 border">
-                {# baseUrl | replace('http://', '') | replace('https://', '') | trim('/') #}
+            <div class="input bg-base-300 border">
+                {{ demoUrl | replace('https://portfolio.valdum.dev/demo', '') | trim('/') }}
             </div>
         </div>
         <div class="bg-base-200 flex justify-center px-2 py-2 w-[800px] h-[500px]">
+            {# Loader #}
+            <div id="iframe-loader" class="flex justify-center h-full">
+                <span class="loading loading-ball loading-xl"></span>
+            </div>
+            {# Content #}
             <div class="overflow-hidden w-full h-full">
                 {# 100 / 0.80 = 125 #}
-                <iframe class="rounded-lg origin-top-left w-[125%] h-[125%] scale-80" src="{{ demoUrl }}">
+                <iframe class="origin-top-left w-[125%] h-[125%] scale-80" src="{{ demoUrl }}" onload="hideLoader()">
                 </iframe>
             </div>
         </div>
@@ -25,14 +30,18 @@
     {% elif demo == 'mobile' %}
 
     <div class="mockup-phone border-primary">
-        <div class="camera"></div>
-        <div class="display">
-            <div class="artboard artboard-demo phone-1">
-                <div class="overflow-hidden w-full h-full">
-                    {# 100 / 0.80 = 125 #}
-                    <iframe class="rounded-lg origin-top-left w-[125%] h-[125%] scale-80" src="{{ demoUrl }}">
-                    </iframe>
-                </div>
+        <div class="mockup-phone-camera"></div>
+        <div class="mockup-phone-display">
+            {# Loader #}
+            <div id="iframe-loader" class="flex justify-center h-full">
+                <span class="loading loading-ball loading-xl"></span>
+            </div>
+            {# Content #}
+            <div id="iframe" class="overflow-hidden w-full h-full hidden">
+                {# 100 / 0.80 = 125 #}
+                <iframe class="origin-top-left w-[125%] h-[125%] scale-80" src="{{ demoUrl }}" onload="hideLoader()">
+                </iframe>
+                <span class="loading loading-ball loading-xs"></span>
             </div>
         </div>
     </div>
@@ -42,6 +51,15 @@
 </div>
 
 <script>
+    function hideLoader() {
+        const loader = document.getElementById("iframe-loader");
+        const iframe = document.getElementById("iframe");
+
+        // Show content
+        loader.classList.add('hidden');
+        iframe.classList.remove('hidden');
+    }
+
     function demo() {
         // If mobile, navigate instead
         if (window.matchMedia("(max-width: 768px)").matches) {
@@ -51,6 +69,7 @@
 
         // If not mobile, we do the fancy animation
         const demo = document.querySelector('#demo');
+
         // Change opacity from 0 to 100%
         demo.classList.toggle('opacity-0');
         demo.classList.toggle('opacity-100');

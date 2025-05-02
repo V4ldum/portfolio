@@ -53,6 +53,8 @@ Future<void> main(List<String> arguments) async {
                 'ul': 'list-disc! list-inside my-4! pl-4!',
                 'ol': 'list-decimal list-inside my-4! pl-4!',
                 'img': 'm-auto',
+                'em': 'text-accent',
+                'strong': 'text-info',
               },
             ),
           );

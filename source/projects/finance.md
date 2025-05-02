@@ -7,7 +7,7 @@ demoUrl: https://portfolio.valdum.dev/demo/finance
 
 ### About the project
 
-I built this application to have a centralized summary of my finance portfolio. For that, I use (Finary)[https://finary.com]'s API for accounts' data, and a custom Rust API for other data like coins and cash. The app aggregates data from both of those sources and categorize them for me to have an overview of everything I own.
+I built this application to have a centralized summary of my finance portfolio. For that, I use [Finary](https://finary.com)'s API for accounts' data, and a custom Rust API for other data like coins and cash. The app aggregates data from both of those sources and categorize them for me to have an overview of everything I own.
 
 ### Tech Stack
 

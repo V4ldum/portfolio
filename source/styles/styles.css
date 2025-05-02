@@ -1,1 +1,38 @@
 @import "tailwindcss";
+
+@plugin "./daisyui.js" {
+    themes: false;
+}
+
+:root:has(input.theme-controller[value=macchiato]:checked),
+[data-theme="macchiato"] {
+    color-scheme: dark;
+    --radius-selector: 0.25rem;
+    --radius-field: 0.5rem;
+    --radius-box: 0.5rem;
+    --size-field: 0.25rem;
+    --size-selector: 0.25rem;
+    --border: 1px;
+    --depth: 1;
+    --noise: 0;
+    --color-primary: #b7bdf8;
+    --color-primary-content: #1e2030;
+    --color-secondary: #363a4f;
+    --color-secondary-content: #cad3f5;
+    --color-accent: #f4dbd6;
+    --color-accent-content: #1e2030;
+    --color-neutral: #8087a2;
+    --color-neutral-content: #1e2030;
+    --color-success: #a6da95;
+    --color-success-content: #24273a;
+    --color-warning: #eed49f;
+    --color-warning-content: #24273a;
+    --color-error: #ed8796;
+    --color-error-content: #24273a;
+    --color-info: #91d7e3;
+    --color-info-content: #1e2030;
+    --color-base-100: #24273a;
+    --color-base-200: #1e2030;
+    --color-base-300: #181926;
+    --color-base-content: #cad3f5
+}
