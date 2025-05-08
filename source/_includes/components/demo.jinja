@@ -6,42 +6,65 @@
     {# Browser Mock #}
     {% if demo == 'browser' %}
 
-    <div class="mockup-browser border bg-base-200 w-full">
-        <div class="mockup-browser-toolbar">
-            <div class="input bg-base-300 border">
-                {{ demoUrl | replace('https://portfolio.valdum.dev/demo', '') | trim('/') }}
-            </div>
+    <div class="indicator">
+        <div class="indicator-item mr-6 mt-6">
+            {# Close Button #}
+            <button class="btn btn-circle btn-ghost" onclick="demo()">
+                <svg fill="none" width="22px" height="22px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke="#f4dbd6" d="M18 18L12 12M12 12L6 6M12 12L18 6M12 12L6 18" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-width="2.5" />
+                </svg>
+            </button>
         </div>
-        <div class="bg-base-200 flex justify-center px-2 py-2 w-[800px] h-[500px]">
-            {# Loader #}
-            <div id="iframe-loader" class="flex justify-center h-full">
-                <span class="loading loading-ball loading-xl"></span>
+        <div class="mockup-browser border bg-base-200 w-full">
+            <div class="mockup-browser-toolbar">
+                <div class="input bg-base-300 border">
+                    {{ demoUrl | replace('https://portfolio.valdum.dev/demo', '') | trim('/') }}
+                </div>
             </div>
-            {# Content #}
-            <div class="overflow-hidden w-full h-full">
-                {# 100 / 0.80 = 125 #}
-                <iframe class="origin-top-left w-[125%] h-[125%] scale-80" src="{{ demoUrl }}" onload="hideLoader()">
-                </iframe>
+            <div class="bg-base-200 flex justify-center px-2 py-2 w-[800px] h-[500px]">
+                {# Loader #}
+                <div id="iframe-loader" class="flex justify-center h-full">
+                    <span class="loading loading-ball loading-xl"></span>
+                </div>
+                {# Content #}
+                <div class="overflow-hidden rounded-sm w-full h-full">
+                    {# 100 / 0.80 = 125 #}
+                    <iframe class="origin-top-left w-[125%] h-[125%] scale-80" src="{{ demoUrl }}"
+                        onload="hideLoader()">
+                    </iframe>
+                </div>
             </div>
         </div>
     </div>
 
     {# Mobile Mock #}
     {% elif demo == 'mobile' %}
-
-    <div class="mockup-phone border-primary">
-        {# <div class="mockup-phone-camera"></div> #}
-        <div class="mockup-phone-display">
-            {# Loader #}
-            <div id="iframe-loader" class="flex justify-center h-full">
-                <span class="loading loading-ball loading-xl"></span>
-            </div>
-            {# Content #}
-            <div id="iframe" class="overflow-hidden w-full h-full hidden">
-                {# 100 / 0.80 = 125 #}
-                <iframe class="origin-top-left w-[125%] h-[125%] scale-80" src="{{ demoUrl }}" onload="hideLoader()">
-                </iframe>
-                <span class="loading loading-ball loading-xs"></span>
+    <div class="indicator">
+        <div class="indicator-item">
+            {# Close Button #}
+            <button class="btn btn-circle btn-ghost" onclick="demo()">
+                <svg fill="none" width="22px" height="22px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke="#f4dbd6" d="M18 18L12 12M12 12L6 6M12 12L18 6M12 12L6 18" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-width="2.5" />
+                </svg>
+            </button>
+        </div>
+        <div class="mockup-phone border-primary">
+            {# <div class="mockup-phone-camera"></div> #}
+            <div class="mockup-phone-display">
+                {# Loader #}
+                <div id="iframe-loader" class="flex justify-center h-full">
+                    <span class="loading loading-ball loading-xl"></span>
+                </div>
+                {# Content #}
+                <div id="iframe" class="overflow-hidden w-full h-full hidden">
+                    {# 100 / 0.80 = 125 #}
+                    <iframe class="origin-top-left w-[125%] h-[125%] scale-80" src="{{ demoUrl }}"
+                        onload="hideLoader()">
+                    </iframe>
+                    <span class="loading loading-ball loading-xs"></span>
+                </div>
             </div>
         </div>
     </div>

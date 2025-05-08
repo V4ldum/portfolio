@@ -13,7 +13,7 @@
 <body>
     {{ components.nav() }}
 
-    <main class="flex flex-col max-w-6xl mx-auto px-6 py-8">
+    <main class="flex flex-col max-w-6xl mx-auto px-6 my-8">
 
         <div class="text-justify leading-snug space-y-4">
             <p>Welcome, </p>
@@ -43,7 +43,7 @@
 
         <h1 class="text-3xl font-bold my-8!">Projects</h1>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
             {# For each pages #}
             {% for page in pages.byTag("projets", sortBy="publishDate=desc") %}
 
