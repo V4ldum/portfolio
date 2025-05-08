@@ -1,6 +1,10 @@
 ---
 title: Fitness App
-publishDate: 2021-12-01
+publishDate: 2022-12-01
+summary: My first application I built to learn Flutter
+lang: 
+ - Flutter
+ - Rust
 demo: mobile
 demoUrl: https://portfolio.valdum.dev/demo/fitness
 ---

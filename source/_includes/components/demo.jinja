@@ -1,6 +1,6 @@
 {% if demo in ['browser', 'mobile'] and demoUrl is defined %}
 
-<button class="btn btn-accent btn-wide" onclick="demo()">Demo</button>
+<button class="btn btn-primary btn-wide" onclick="demo()">Demo</button>
 <div id="demo" class="fixed -top-1/2 left-1/2 -translate-1/2 opacity-0 transition-all duration-750 ease-out">
 
     {# Browser Mock #}
@@ -30,7 +30,7 @@
     {% elif demo == 'mobile' %}
 
     <div class="mockup-phone border-primary">
-        <div class="mockup-phone-camera"></div>
+        {# <div class="mockup-phone-camera"></div> #}
         <div class="mockup-phone-display">
             {# Loader #}
             <div id="iframe-loader" class="flex justify-center h-full">

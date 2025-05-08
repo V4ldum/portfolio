@@ -1,6 +1,9 @@
 ---
 title: Rainbow Table
 publishDate: 2025-01-01
+summary: Password cracker using the Rainbow Table data structure
+lang:  
+ - Rust
 ---
 
 ### About the project

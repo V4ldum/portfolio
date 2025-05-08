@@ -1,6 +1,9 @@
 ---
-title: Proof of Concept Spyware
-publishDate: 2025-01-01
+title: PoC Spyware
+publishDate: 2020-01-01
+summary: Proof of concept for a very small spyware with standard features
+lang:  
+ - Python
 ---
 
 ### About the project

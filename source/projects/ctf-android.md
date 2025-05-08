@@ -1,6 +1,9 @@
 ---
-title: Android Security Challenges
+title: CTF Android
 publishDate: 2021-10-01
+summary: Collection of entry-level cybersecurity challenges on Android
+lang:  
+ - Java
 ---
 
 ### About the project

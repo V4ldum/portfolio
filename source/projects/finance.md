@@ -1,6 +1,10 @@
 ---
 title: Finance App
 publishDate: 2024-02-01
+summary: Personal application providing a centralized summary of my portfolio
+lang: 
+ - Flutter
+ - Rust
 demo: mobile
 demoUrl: https://portfolio.valdum.dev/demo/finance
 ---

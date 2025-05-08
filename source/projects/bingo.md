@@ -1,6 +1,9 @@
 ---
 title: Bingo
 publishDate: 2024-12-01
+summary: Helper website to create bingo tables to play with friends during events
+lang: 
+ - Flutter
 demo: browser
 demoUrl: https://portfolio.valdum.dev/demo/bingo
 ---
