@@ -10,7 +10,6 @@ RUN mv tailwindcss-linux-arm64 tailwindcss
 
 ### Flutter
 RUN git clone https://github.com/flutter/flutter.git /flutter
-
 ENV PATH="/flutter/bin:/flutter/bin/cache/dart-sdk/bin:${PATH}"
 
 ## Config
