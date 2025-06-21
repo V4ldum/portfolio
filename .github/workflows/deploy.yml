@@ -1,11 +1,11 @@
 name: pipeline
 on:
- push:
-   branches:
-     - "main"
-   paths:
-     - bin/**
-     - source/**
+  push:
+    branches:
+      - "main"
+    paths:
+      - bin/**
+      - source/**
 
 permissions:
   contents: read
