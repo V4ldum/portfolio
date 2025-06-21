@@ -14,13 +14,13 @@ ENV PATH="/flutter/bin:/flutter/bin/cache/dart-sdk/bin:${PATH}"
 # Config
 RUN dart --disable-analytics
 RUN flutter --disable-analytics
-RUN flutter channel stable > /dev/null 2>&1
-RUN flutter upgrade > /dev/null 2>&1
-RUN flutter config --enable-web 2>&1
-RUN dart pub get > /dev/null 2>&1
+RUN flutter channel stable
+RUN flutter upgrade
+RUN flutter config --enable-web
+RUN dart pub get
 
 # Build
-RUN dart run bin/main.dart release > /dev/null
+RUN dart run bin/main.dart release
 
 
 FROM nginx:alpine-slim
