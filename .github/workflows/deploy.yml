@@ -6,6 +6,7 @@ on:
     paths:
       - bin/**
       - source/**
+      - docker-compose.yml
 
 permissions:
   contents: read
