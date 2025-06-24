@@ -3,11 +3,10 @@ on:
   push:
     branches:
       - "main"
-      
-    # paths:
-    #   - bin/**
-    #   - source/**
-    #   - docker-compose.yml
+    paths:
+      - bin/**
+      - source/**
+      - docker-compose.yml
 
 permissions:
   contents: read
