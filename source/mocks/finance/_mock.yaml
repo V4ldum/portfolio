@@ -1,5 +1,5 @@
 git: https://github.com/V4ldum/finance
-gitCommitHash: eb741d096b8da2e27eb69994cabe1a48fc7f73ef
+gitCommitHash: c3fbad1df27d122a832a43b38b85000daa64ad13
 buildCommands: 
  - dart run intl_utils:generate
  - dart run build_runner build

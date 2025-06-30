@@ -50,7 +50,7 @@ class DatabaseMockRepository implements DatabaseRepository {
 
   @override
   Future<Bingo> getBingo({required String id}) async {
-    return Future.value(_bingos.iter().find((e) => e.id == id).unwrap());
+    return Future.value(_bingos.iter().find((e) => e.id == id)!);
   }
 
   @override
@@ -72,8 +72,8 @@ class DatabaseMockRepository implements DatabaseRepository {
   Future<void> updateBingo(Bingo bingo) async {
     final index = _bingos.iter().position((e) => e.id == bingo.id);
 
-    if (index case Some(:final value)) {
-      _bingos[value] = bingo;
+    if (index != null) {
+      _bingos[index] = bingo;
     }
   }
 

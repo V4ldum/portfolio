@@ -24,9 +24,9 @@ Future<void> main(List<String> arguments) async {
         staticShock
           // files
           ..pick(DirectoryPicker.parse("public"))
-          ..pick(FilePicker(FileRelativePath("", "robots", "txt")))
-          ..pick(FilePicker(FileRelativePath("", "favicon", "ico")))
-          ..pick(FilePicker(FileRelativePath("", "_404", "html")))
+          ..pick(const FilePicker(FileRelativePath("", "robots", "txt")))
+          ..pick(const FilePicker(FileRelativePath("", "favicon", "ico")))
+          ..pick(const FilePicker(FileRelativePath("", "_404", "html")))
           // plugins
           ..plugin(const MarkdownPlugin())
           ..plugin(const JinjaPlugin())
@@ -38,9 +38,9 @@ Future<void> main(List<String> arguments) async {
             ),
           )
           ..plugin(const PrettyUrlsPlugin())
-          ..plugin(HtmlPrettifierPlugin())
+          ..plugin(const HtmlPrettifierPlugin())
           ..finish(
-            MarkdownHtmlClassAdderFinisher(
+            const MarkdownHtmlClassAdderFinisher(
               classesPerTags: {
                 'h1': 'text-4xl! font-semibold mt-8',
                 'h2': 'text-3xl! mt-8',

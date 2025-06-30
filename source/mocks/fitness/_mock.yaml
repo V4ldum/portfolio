@@ -1,5 +1,5 @@
 git: https://github.com/V4ldum/fitness-app
-gitCommitHash: 1be99feba20654b9a97fd1c3691420f65b0fee4f
+gitCommitHash: 60d5a18f59d46f0448597cbf18bd3642f05d8bbd
 appSubdirectory: "app"
 buildCommands: 
  - flutter create --platforms=web .

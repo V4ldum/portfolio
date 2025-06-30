@@ -1,5 +1,5 @@
 git: https://github.com/V4ldum/bingo
-gitCommitHash: 734bd54ee0b438cdf6ab138aba924dfab8a3389e
+gitCommitHash: 6a37b64620a964a68bf36bf7d3cd6264ad9aa366
 buildCommands: 
  - dart run build_runner build
  - flutter build web --release --base-href /demo/bingo/
