@@ -4,8 +4,8 @@ COPY . .
 
 # TailwindCSS
 RUN curl -sLO https://github.com/tailwindlabs/tailwindcss/releases/latest/download/tailwindcss-linux-arm64
-RUN chmod +x tailwindcss-linux-arm64
 RUN mv tailwindcss-linux-arm64 tailwindcss
+RUN chmod +x tailwindcss
 
 # Flutter
 RUN git clone https://github.com/flutter/flutter.git /flutter
