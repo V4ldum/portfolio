@@ -1,6 +1,6 @@
 {% if demo in ['browser', 'mobile'] and demoUrl is defined %}
 
-<button class="btn btn-primary btn-wide" onclick="demo()">Demo</button>
+<button class="btn btn-primary btn-wide">Demo</button>
 <div id="demo" class="fixed -top-1/2 left-1/2 -translate-1/2 opacity-0 transition-all duration-750 ease-out">
 
     {# Browser Mock #}
@@ -9,7 +9,7 @@
     <div class="indicator">
         <div class="indicator-item mr-6 mt-6">
             {# Close Button #}
-            <button class="btn btn-circle btn-ghost" onclick="demo()">
+            <button class="btn btn-circle btn-ghost">
                 <svg fill="none" width="22px" height="22px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke="#f4dbd6" d="M18 18L12 12M12 12L6 6M12 12L18 6M12 12L6 18" stroke-linecap="round"
                         stroke-linejoin="round" stroke-width="2.5">
@@ -30,8 +30,7 @@
                 {# Content #}
                 <div class="overflow-hidden rounded-sm w-full h-full">
                     {# 100 / 0.80 = 125 #}
-                    <iframe class="origin-top-left w-[125%] h-[125%] scale-80" src="{{ demoUrl }}"
-                        onload="hideLoader()">
+                    <iframe class="origin-top-left w-[125%] h-[125%] scale-80" src="{{ demoUrl }}">
                     </iframe>
                 </div>
             </div>
@@ -43,7 +42,7 @@
     <div class="indicator">
         <div class="indicator-item">
             {# Close Button #}
-            <button class="btn btn-circle btn-ghost" onclick="demo()">
+            <button class="btn btn-circle btn-ghost">
                 <svg fill="none" width="22px" height="22px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke="#f4dbd6" d="M18 18L12 12M12 12L6 6M12 12L18 6M12 12L6 18" stroke-linecap="round"
                         stroke-linejoin="round" stroke-width="2.5">
@@ -60,8 +59,7 @@
                 {# Content #}
                 <div id="iframe" class="overflow-hidden w-full h-full hidden">
                     {# 100 / 0.80 = 125 #}
-                    <iframe class="origin-top-left w-[125%] h-[125%] scale-80" src="{{ demoUrl }}"
-                        onload="hideLoader()">
+                    <iframe class="origin-top-left w-[125%] h-[125%] scale-80" src="{{ demoUrl }}">
                     </iframe>
                     <span class="loading loading-ball loading-xs"></span>
                 </div>
@@ -74,16 +72,17 @@
 </div>
 
 <script>
-    function hideLoader() {
-        const loader = document.getElementById("iframe-loader");
-        const iframe = document.getElementById("iframe");
+    $("iframe").on("load", function () {
+        const loader = $("#iframe-loader");
+        const iframe = $("#iframe");
 
         // Show content
-        loader.classList.add('hidden');
-        iframe.classList.remove('hidden');
-    }
+        loader.addClass('hidden');
+        iframe.removeClass('hidden');
+    });
 
-    function demo() {
+
+    $("button").on("click", function () {
         // If mobile, navigate instead
         if (window.matchMedia("(max-width: 768px)").matches) {
             window.location.href = "{{ demoUrl }}";
@@ -91,16 +90,16 @@
         }
 
         // If not mobile, we do the fancy animation
-        const demo = document.querySelector('#demo');
+        const demo = $('#demo');
 
         // Change opacity from 0 to 100%
-        demo.classList.toggle('opacity-0');
-        demo.classList.toggle('opacity-100');
+        demo.toggleClass('opacity-0');
+        demo.toggleClass('opacity-100');
 
         // Change top position from -50% to 50%
-        demo.classList.toggle('-top-1/2');
-        demo.classList.toggle('top-1/2');
-    }
+        demo.toggleClass('-top-1/2');
+        demo.toggleClass('top-1/2');
+    });
 </script>
 
 {% endif %}

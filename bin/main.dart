@@ -25,6 +25,7 @@ Future<void> main(List<String> arguments) async {
           // files
           ..pick(DirectoryPicker.parse("public"))
           ..pick(const FilePicker(FileRelativePath("", "robots", "txt")))
+          ..pick(const FilePicker(FileRelativePath("", "jquery", "min.js")))
           ..pick(const FilePicker(FileRelativePath("", "favicon", "ico")))
           ..pick(const FilePicker(FileRelativePath("", "_404", "html")))
           // plugins
