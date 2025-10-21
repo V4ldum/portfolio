@@ -7,6 +7,7 @@ on:
       - bin/**
       - source/**
       - docker-compose.yml
+      - Dockerfile
 
 permissions:
   contents: read
