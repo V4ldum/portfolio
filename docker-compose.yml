@@ -1,17 +1,22 @@
 services:
-  portfolio:
-    image: ghcr.io/v4ldum/portfolio:latest
-    restart: unless-stopped
-    networks:
-      - "netv6"
-    environment:
-      - TZ=Europe/Paris
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.portfolio.tls=true"
-      - "traefik.http.routers.portfolio.entrypoints=websecure"
-      - "traefik.http.routers.portfolio.rule=Host(`portfolio.valdum.dev`)"
+    portfolio:
+        image: ghcr.io/v4ldum/portfolio:latest
+        restart: unless-stopped
+        # Draining
+        healthcheck:
+            test: test ! -f /tmp/drain # && some other healthcheck
+            interval: 5s
+            retries: 1
+        networks:
+            - "netv6"
+        environment:
+            - TZ=Europe/Paris
+        labels:
+            - "traefik.enable=true"
+            - "traefik.http.routers.portfolio.tls=true"
+            - "traefik.http.routers.portfolio.entrypoints=websecure"
+            - "traefik.http.routers.portfolio.rule=Host(`portfolio.valdum.dev`)"
 
 networks:
-  netv6:
-    external: true
+    netv6:
+        external: true
