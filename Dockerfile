@@ -28,7 +28,7 @@ RUN dart --disable-analytics && \
     flutter precache --web
 
 # Config Flutter
-COPY pubspec.yaml pubspec.lock ./
+COPY pubspec.yaml ./
 RUN dart pub get
 
 # TailwindCSS
