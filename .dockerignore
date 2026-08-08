@@ -1,0 +1,12 @@
+# Whitelist: exclude everything and only add what's needed
+
+# Exclude everything
+*
+
+# Dart related
+!pubspec.yaml
+!pubspec.lock
+
+# Sources
+!bin
+!source
