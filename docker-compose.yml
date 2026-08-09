@@ -2,6 +2,11 @@ services:
     portfolio:
         image: ghcr.io/v4ldum/portfolio:latest
         restart: unless-stopped
+        #read_only: true
+        cap_drop: [ALL]
+        security_opt: [no-new-privileges:true]
+        tmpfs:
+            - /tmp:mode=0700,uid=101,gid=101
         healthcheck:
             # Draining
             test: test ! -f /tmp/drain # && some other healthcheck
