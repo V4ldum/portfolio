@@ -10,16 +10,16 @@ metadata:
 spec:
     ingressClassName: traefik
     rules:
-        - host: portfolio.lan
-          http:
-              paths:
-                  - path: /
-                    pathType: Prefix
-                    backend:
-                        service:
-                            name: portfolio
-                            port:
-                                name: http-out
+      - host: portfolio.lan
+        http:
+            paths:
+              - path: /
+                pathType: Prefix
+                backend:
+                    service:
+                        name: portfolio
+                        port:
+                            name: http-out
 
 ---
 apiVersion: v1
@@ -34,10 +34,10 @@ spec:
         app: portfolio
     sessionAffinity: None
     ports:
-        - name: http-out
-          protocol: TCP
-          port: 80
-          targetPort: http-in
+      - name: http-out
+        protocol: TCP
+        port: 80
+        targetPort: http-in
 
 ---
 apiVersion: apps/v1
@@ -67,28 +67,28 @@ spec:
 
         spec:
             containers:
-                - name: portfolio
-                  image: ghcr.io/v4ldum/portfolio:latest
-                  imagePullPolicy: Always
+              - name: portfolio
+                image: ghcr.io/v4ldum/portfolio:latest
+                imagePullPolicy: Always
 
-                  ports:
-                      - name: http-in
-                        containerPort: 8080
+                ports:
+                  - name: http-in
+                    containerPort: 8080
 
-                  env:
-                      - name: TZ
-                        value: Europe/Paris
+                env:
+                  - name: TZ
+                    value: Europe/Paris
 
-                  startupProbe:
-                      httpGet:
-                          path: /
-                          port: http-in
-                  livenessProbe:
-                      httpGet:
-                          path: /
-                          port: http-in
-                  readinessProbe:
-                      timeoutSeconds: 3
-                      httpGet:
-                          path: /
-                          port: http-in
+                startupProbe:
+                    httpGet:
+                        path: /
+                        port: http-in
+                livenessProbe:
+                    httpGet:
+                        path: /
+                        port: http-in
+                readinessProbe:
+                    timeoutSeconds: 3
+                    httpGet:
+                        path: /
+                        port: http-in
