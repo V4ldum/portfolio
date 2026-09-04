@@ -41,7 +41,4 @@ RUN dart run bin/main.dart release
 
 ## RUN ##
 FROM nginxinc/nginx-unprivileged:alpine-slim
-# Update nginx config
-RUN sed -i '/^\s*#error_page\s*404/c\    error_page 404 /_404.html;' /etc/nginx/conf.d/default.conf
-
 COPY --from=build /work/build /usr/share/nginx/html
