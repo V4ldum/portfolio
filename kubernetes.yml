@@ -10,7 +10,7 @@ metadata:
 spec:
     ingressClassName: traefik
     rules:
-      - host: portfolio.lan
+      - host: portfolio.valdum.dev
         http:
             paths:
               - path: /
