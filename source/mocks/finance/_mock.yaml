@@ -1,6 +1,6 @@
 git: https://github.com/V4ldum/finance
-gitCommitHash: c3fbad1df27d122a832a43b38b85000daa64ad13
-buildCommands: 
+gitCommitHash: 2ec730f15ddc12a6beab696fd7344609f3f69879
+buildCommands:
  - dart run intl_utils:generate
  - dart run build_runner build
  - flutter create --platforms=web .
@@ -8,10 +8,10 @@ buildCommands:
 buildOutputFolder: build/web
 commands:
   - DELETE:
-    - lib/_l10n/intl_fr.arb 
+    - lib/_l10n/intl_fr.arb
   - REPLACE:
-    - lib/shared 
-    - (await path_provider.getApplicationDocumentsDirectory()).path 
+    - lib/shared
+    - (await path_provider.getApplicationDocumentsDirectory()).path
     - "''" # Empty string
     - app_cache_controller\.dart$
   - REPLACE:
