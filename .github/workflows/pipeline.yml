@@ -1,14 +1,14 @@
 name: CI/CD
 on:
     workflow_dispatch:
-    #push:
-    #    branches:
-    #        - "main"
-    #    paths:
-    #        - lib/**
-    #        - source/**
-    #        - Dockerfile
-    #        - docker-compose.yml
+    push:
+        branches:
+            - "main"
+        paths:
+            - lib/**
+            - source/**
+            - Dockerfile
+            - kubernetes.yml
 
 permissions:
     contents: read
@@ -35,7 +35,7 @@ jobs:
                           - 'source/**'
                           - 'Dockerfile'
                       deploy:
-                          - 'docker-compose.yml'
+                          - 'kubernetes.yml'
 
     test:
         needs: detect-changes
