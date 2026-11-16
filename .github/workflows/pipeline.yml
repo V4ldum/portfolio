@@ -13,6 +13,7 @@ on:
 permissions:
     contents: read
     packages: write
+    id-token: write
 
 concurrency:
     group: ${{ github.workflow }}-${{ github.ref }}
@@ -54,11 +55,14 @@ jobs:
     deploy:
         needs: [detect-changes, build]
         if: >-
-            needs.build.result == 'success' ||
-              needs.build.result == 'skipped' &&
-              needs.detect-changes.outputs.deploy == 'true'
+            !cancelled() && !failure() &&
+            (needs.build.result == 'success' ||
+              (needs.build.result == 'skipped' &&
+                needs.detect-changes.outputs.deploy == 'true'))
         uses: v4ldum/shared-workflows/.github/workflows/deploy.yml@main
         secrets: inherit
+        with:
+            project: portfolio
 
     cleanup:
         needs: [build, deploy]
@@ -66,4 +70,4 @@ jobs:
         uses: v4ldum/shared-workflows/.github/workflows/cleanup.yml@main
         secrets: inherit
         with:
-            project: ${{ needs.detect-changes.outputs.project }}
+            project: portfolio
