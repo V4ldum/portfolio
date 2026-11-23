@@ -107,12 +107,12 @@ spec:
                   - name: TZ
                     value: Europe/Paris
 
-              securityContext:
-                  allowPrivilegeEscalation: false
-                  runAsNonRoot: true
-                  readOnlyRootFilesystem: true
-                  capabilities:
-                      drop: ["ALL"]
+                securityContext:
+                    allowPrivilegeEscalation: false
+                    runAsNonRoot: true
+                    readOnlyRootFilesystem: true
+                    capabilities:
+                        drop: ["ALL"]
 
                 startupProbe:
                     periodSeconds: 1
